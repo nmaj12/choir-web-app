@@ -1,5 +1,7 @@
+using choir_app.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace choir_app
-    // check
 {
     public class Program
     {
@@ -9,6 +11,10 @@ namespace choir_app
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                   builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

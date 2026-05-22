@@ -1,0 +1,20 @@
+﻿@model List<choir_app.Models.News>
+
+<h1>Aktualności</h1>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3>@item.Title</h3>
+
+            <p>@item.Content</p>
+
+            <a asp-action="Details"
+               asp-route-id="@item.Id"
+               class="btn btn-primary">
+                Czytaj więcej
+            </a>
+        </div>
+    </div>
+}

@@ -1,7 +1,28 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir_app\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,11 +30,76 @@
       "DocumentGroups": [
         {
           "DockedHeight": 183,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-22T19:32:32.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA0wBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T19:28:52.879Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "Models\\Event.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\Event.cs",
+              "RelativeToolTip": "Models\\Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T19:20:21.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "News.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\News.cs",
+              "RelativeDocumentMoniker": "Models\\News.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\News.cs",
+              "RelativeToolTip": "Models\\News.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T19:19:35.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T19:07:31.54Z",
+              "EditorCaption": ""
             }
           ]
         }
