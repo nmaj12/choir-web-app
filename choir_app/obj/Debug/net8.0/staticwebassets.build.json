@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M9bo8/1EYfLO/GNG5aE+d2X6EBKE7aLGW/j/tzmjPsw=",
+  "Hash": "gH2fcnm+Oaq6tJifLbyYYag77lU2D5IuvfsGt5GXrDo=",
   "Source": "choir_app",
   "BasePath": "_content/choir_app",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "c2tiyv64ts",
-      "Integrity": "pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0=",
+      "Fingerprint": "ges249uqfm",
+      "Integrity": "uFtKIRnbv7zGRqoycIUMqcW/Xn92wlGbqrIpB6/UKW4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1485,51 +1485,6 @@
       ]
     },
     {
-      "Route": "css/site.c2tiyv64ts.css",
-      "AssetFile": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "362"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 26 May 2026 15:42:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "c2tiyv64ts"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0="
-        }
-      ]
-    },
-    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1540,7 +1495,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "362"
+          "Value": "3268"
         },
         {
           "Name": "Content-Type",
@@ -1548,11 +1503,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0=\""
+          "Value": "\"uFtKIRnbv7zGRqoycIUMqcW/Xn92wlGbqrIpB6/UKW4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 26 May 2026 15:42:30 GMT"
+          "Value": "Tue, 26 May 2026 16:35:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1562,7 +1517,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pAGv4ietcJNk/EwsQZ5BN9+K4MuNYS2a9wl4Jw+q9D0="
+          "Value": "sha256-uFtKIRnbv7zGRqoycIUMqcW/Xn92wlGbqrIpB6/UKW4="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.ges249uqfm.css",
+      "AssetFile": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3268"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uFtKIRnbv7zGRqoycIUMqcW/Xn92wlGbqrIpB6/UKW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 26 May 2026 16:35:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ges249uqfm"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uFtKIRnbv7zGRqoycIUMqcW/Xn92wlGbqrIpB6/UKW4="
         }
       ]
     },

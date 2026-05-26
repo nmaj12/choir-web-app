@@ -1,22 +1,176 @@
-html {
-  font-size: 14px;
+.hero-section {
+    position: relative;
+    background: linear-gradient(rgba(75,0,35,0.75), rgba(20,10,15,0.9)), url('/images/choir-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 30px;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.hero-subtitle {
+    color: #d4af37;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.hero-list {
+    list-style: none;
+    padding: 0;
 }
 
+    .hero-list li {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        position: relative;
+        padding-left: 30px;
+    }
+
+        .hero-list li::before {
+            content: "•";
+            color: #d4af37;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+.hero-image {
+    max-height: 700px;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #d4af37, #b8932f);
+    border: none;
+    color: #111;
+    border-radius: 12px;
+    padding: 14px 30px;
+    font-weight: 600;
+}
 body {
-  margin-bottom: 60px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #12090d;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.custom-navbar {
+    background: rgba(20, 10, 15, 0.92);
+    backdrop-filter: blur(10px);
+    padding: 18px 0;
+    transition: 0.3s;
+}
+
+.brand-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white !important;
+    letter-spacing: 1px;
+}
+
+.text-gold {
+    color: #d4af37;
+}
+
+.custom-link {
+    color: rgba(255,255,255,0.85) !important;
+    margin-left: 18px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+    .custom-link:hover {
+        color: #d4af37 !important;
+    }
+
+/* BUTTON */
+
+.btn-gold {
+    background: linear-gradient(135deg, #d4af37, #b8932f);
+    color: #111;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+    .btn-gold:hover {
+        transform: translateY(-2px);
+        color: #111;
+        box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+    }
+
+/* FOOTER */
+
+.footer-custom {
+    background: #0c0609;
+    padding: 80px 0 30px;
+    margin-top: 100px;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.footer-title {
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: rgba(255,255,255,0.7);
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        .footer-links a:hover {
+            color: #d4af37;
+        }
+
+.footer-divider {
+    margin: 40px 0 20px;
+    border-color: rgba(255,255,255,0.1);
+}
+
+.footer-copy {
+    color: rgba(255,255,255,0.5);
+}
+
+
+@media (max-width: 991px) {
+
+    .navbar-collapse {
+        margin-top: 20px;
+        background: rgba(20,10,15,0.98);
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .custom-link {
+        margin-left: 0;
+        margin-bottom: 12px;
+    }
 }
