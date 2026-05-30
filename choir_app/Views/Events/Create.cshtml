@@ -1,0 +1,24 @@
+﻿@model choir_app.Models.Events
+
+<h1>Dodaj wydarzenie</h1>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label>Nazwa</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Data</label>
+        <input asp-for="Date" type="date" />
+    </div>
+
+    <div>
+        <label>Lokalizacja</label>
+        <input asp-for="Location" />
+    </div>
+
+    <button type="submit">Zapisz</button>
+
+</form>
