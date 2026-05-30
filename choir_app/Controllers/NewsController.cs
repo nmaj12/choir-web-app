@@ -20,16 +20,59 @@ namespace choir_app.Controllers
             return View(news);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Create()
         {
-            var article = _context.News.FirstOrDefault(x => x.Id == id);
+            return View();
+        }
 
-            if (article == null)
+        [HttpPost]
+        public IActionResult Create(News n)
+        {
+            n.CreatedAt = DateTime.Now;
+
+            _context.News.Add(n);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var n = _context.News.Find(id);
+
+            if (n != null)
             {
-                return NotFound();
+                _context.News.Remove(n);
+                _context.SaveChanges();
             }
 
-            return View(article);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var n = _context.News.Find(id);
+
+            if (n == null)
+                return NotFound();
+
+            return View(n);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(News n)
+        {
+            var existing = _context.News.Find(n.Id);
+
+            if (existing == null)
+                return NotFound();
+
+            existing.Title = n.Title;
+            existing.Content = n.Content;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

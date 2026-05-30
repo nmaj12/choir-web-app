@@ -1,0 +1,19 @@
+﻿@model choir_app.Models.News
+
+<h1>Dodaj news</h1>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label>Tytuł</label>
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label>Treść</label>
+        <textarea asp-for="Content"></textarea>
+    </div>
+
+    <button type="submit">Zapisz</button>
+
+</form>
