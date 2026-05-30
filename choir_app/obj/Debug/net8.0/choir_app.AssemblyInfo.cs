@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("choir_app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+488b461be86448c73f85563feba8173c8eebe9c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89a200ca509b5706890dd7e02d1b4b6368e8320e")]
 [assembly: System.Reflection.AssemblyProductAttribute("choir_app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("choir_app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
