@@ -1,6 +1,6 @@
 ﻿namespace choir_app.Models
 {
-    public class Event
+    public class Events
     {
         public int Id { get; set; }
 

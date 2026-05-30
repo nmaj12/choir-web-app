@@ -1,0 +1,18 @@
+﻿@model IEnumerable<choir_app.Models.Events>
+
+<h1>Lista wydarzeń</h1>
+
+@foreach (var e in Model)
+{
+    <div>
+        <h3>@e.Name</h3>
+        <p>@e.Date</p>
+        <p>@e.Location</p>
+
+        <a href="/Events/Edit/@e.Id">Edytuj</a>
+
+        <a href="/Events/Delete/@e.Id">Usuń</a>
+    </div>
+}
+
+<a href="/Events/Create">+ Dodaj wydarzenie</a>
