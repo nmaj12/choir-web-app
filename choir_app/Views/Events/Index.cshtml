@@ -9,6 +9,10 @@
         <p>@e.Date</p>
         <p>@e.Location</p>
 
+        <a href="/Attendance/Set?eventId=@e.Id&status=present">obecny</a>
+        <a href="/Attendance/Set?eventId=@e.Id&status=absent">nieobecny</a>
+        <a href="/Attendance/Set?eventId=@e.Id&status=maybe">nie wiem</a>
+
         <a href="/Events/Edit/@e.Id">Edytuj</a>
 
         <a href="/Events/Delete/@e.Id">Usuń</a>
