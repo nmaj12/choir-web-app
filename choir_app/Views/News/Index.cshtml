@@ -2,19 +2,18 @@
 
 <h1>Aktualności</h1>
 
-@foreach (var item in Model)
+<a href="/News/Create">Dodaj news</a>
+
+@foreach (var n in Model)
 {
-    <div class="card mb-3">
-        <div class="card-body">
-            <h3>@item.Title</h3>
+    <div style="margin-bottom: 15px;">
+        <h3>@n.Title</h3>
+        <p>@n.Content</p>
+        <small>@n.CreatedAt</small>
 
-            <p>@item.Content</p>
-
-            <a asp-action="Details"
-               asp-route-id="@item.Id"
-               class="btn btn-primary">
-                Czytaj więcej
-            </a>
+        <div>
+            <a href="/News/Edit/@n.Id">Edytuj</a> |
+            <a href="/News/Delete/@n.Id">Usuń</a>
         </div>
     </div>
 }
