@@ -11,10 +11,15 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("choir_app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a383316f5dda93d7280b79971025cbb81510ea4e")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66ebfdf7e67b7980f331bc9f38666091f8b4f788")]
+>>>>>>> 9d236c85bc02bbc40473e63b7a4a46a74f737581
 [assembly: System.Reflection.AssemblyProductAttribute("choir_app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("choir_app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

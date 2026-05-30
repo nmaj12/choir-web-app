@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace choir_app.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -14,6 +14,9 @@ namespace choir_app.Data
 
         public DbSet<News> News { get; set; }
 
-        public DbSet<Event> Events { get; set; }
+        public DbSet<Events> Events { get; set; }
+
+        public DbSet<Attendance> Attendances { get; set; }
+
     }
 }
