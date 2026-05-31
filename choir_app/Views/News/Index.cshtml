@@ -2,7 +2,10 @@
 
 <h1>Aktualności</h1>
 
-<a href="/News/Create">Dodaj news</a>
+@if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+{
+    <a href="/News/Create">Dodaj news</a>
+}
 
 @foreach (var n in Model)
 {
@@ -11,9 +14,18 @@
         <p>@n.Content</p>
         <small>@n.CreatedAt</small>
 
-        <div>
-            <a href="/News/Edit/@n.Id">Edytuj</a> |
-            <a href="/News/Delete/@n.Id">Usuń</a>
-        </div>
+        @if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+        {
+            <div>
+                <a href="/News/Edit/@n.Id">Edytuj</a>
+            </div>
+        }
+
+        @if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+        {
+            <div>
+                <a href="/News/Delete/@n.Id">Usuń</a>
+            </div>
+        }
     </div>
 }

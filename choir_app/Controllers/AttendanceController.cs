@@ -1,34 +1,49 @@
 ﻿using choir_app.Data;
 using choir_app.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
-public class AttendanceController : Controller
+namespace choir_app.Controllers
 {
-    private readonly ApplicationDbContext _context;
-
-    public AttendanceController(ApplicationDbContext context)
+    [Authorize]
+    public class AttendanceController : Controller
     {
-        _context = context;
-    }
+        private readonly ApplicationDbContext _context;
 
-    public IActionResult Index()
-    {
-        var list = _context.Attendances.ToList();
-        return View(list);
-    }
-
-    public IActionResult Set(int eventId, string status)
-    {
-        var attendance = new Attendance
+        public AttendanceController(ApplicationDbContext context)
         {
-            EventId = eventId,
-            Status = status,
-            UserId = "demo-user"
-        };
+            _context = context;
+        }
 
-        _context.Attendances.Add(attendance);
-        _context.SaveChanges();
+        public IActionResult Index()
+        {
+            var userEmail = User.FindFirstValue(ClaimTypes.Name);
 
-        return RedirectToAction("Index", "Events");
+            var list = _context.Attendances
+                .Include(a => a.Event)
+                .Where(a => a.UserId == userEmail)
+                .ToList();
+
+            return View(list);
+        }
+
+        public IActionResult Set(int eventId, string status)
+        {
+            var userEmail = User.FindFirstValue(ClaimTypes.Name);
+
+            var attendance = new Attendance
+            {
+                EventId = eventId,
+                Status = status,
+                UserId = userEmail
+            };
+
+            _context.Attendances.Add(attendance);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Events");
+        }
     }
 }
