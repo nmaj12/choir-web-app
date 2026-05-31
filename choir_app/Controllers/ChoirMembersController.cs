@@ -53,15 +53,16 @@ namespace choir_app.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, VoiceType voice)
+        public async Task<IActionResult> Edit(int id, ChoirMember model)
         {
             var member = await _context.ChoirMembers.FindAsync(id);
 
             if (member == null) return NotFound();
 
-            member.Voice = voice;
+            member.Voice = model.Voice;
+            member.IsActive = model.IsActive;
+            member.Notes = model.Notes;
 
-            _context.Update(member);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");

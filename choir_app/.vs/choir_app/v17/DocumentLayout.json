@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\controllers\\choirmemberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:controllers\\choirmemberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\views\\choirmembers\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\choirmembers\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\models\\choirmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\choirmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\models\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\models\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\natal\\desktop\\studia\\techniki internetowe\\api\\choir-web-app\\choir_app\\models\\choirmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\choirmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,27 +42,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Views\\ChoirMembers\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\ChoirMembers\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Views\\ChoirMembers\\Edit.cshtml",
+              "RelativeToolTip": "Views\\ChoirMembers\\Edit.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACEAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-31T15:14:17.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChoirMembersController.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Controllers\\ChoirMembersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ChoirMembersController.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Controllers\\ChoirMembersController.cs",
+              "RelativeToolTip": "Controllers\\ChoirMembersController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwEQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T15:13:35.35Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "News.cs",
-              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\News.cs",
-              "RelativeDocumentMoniker": "Models\\News.cs",
-              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\News.cs",
-              "RelativeToolTip": "Models\\News.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T14:49:37.337Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Attendance.cs",
               "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\Attendance.cs",
               "RelativeDocumentMoniker": "Models\\Attendance.cs",
@@ -67,19 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GalleryImage.cs",
-              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
-              "RelativeDocumentMoniker": "Models\\GalleryImage.cs",
-              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
-              "RelativeToolTip": "Models\\GalleryImage.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T14:49:03.914Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "FileResource.cs",
               "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\FileResource.cs",
               "RelativeDocumentMoniker": "Models\\FileResource.cs",
@@ -91,7 +101,44 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChoirMember.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\ChoirMember.cs",
+              "RelativeDocumentMoniker": "Models\\ChoirMember.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\ChoirMember.cs",
+              "RelativeToolTip": "Models\\ChoirMember.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAowBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T14:47:48.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GalleryImage.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
+              "RelativeDocumentMoniker": "Models\\GalleryImage.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
+              "RelativeToolTip": "Models\\GalleryImage.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T14:49:03.914Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "News.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\News.cs",
+              "RelativeDocumentMoniker": "Models\\News.cs",
+              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\News.cs",
+              "RelativeToolTip": "Models\\News.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T14:49:37.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Events.cs",
               "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\Events.cs",
               "RelativeDocumentMoniker": "Models\\Events.cs",
@@ -100,18 +147,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-31T14:48:14.865Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ChoirMember.cs",
-              "DocumentMoniker": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\ChoirMember.cs",
-              "RelativeDocumentMoniker": "Models\\ChoirMember.cs",
-              "ToolTip": "C:\\Users\\natal\\Desktop\\studia\\Techniki internetowe\\API\\choir-web-app\\choir_app\\Models\\ChoirMember.cs",
-              "RelativeToolTip": "Models\\ChoirMember.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBgAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-31T14:47:48.18Z"
             }
           ]
         }
