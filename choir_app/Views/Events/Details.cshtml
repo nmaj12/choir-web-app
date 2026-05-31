@@ -1,0 +1,167 @@
+﻿@model choir_app.Models.Events
+@{
+    ViewData["Title"] = Model?.Name ?? "Szczegóły wydarzenia";
+    ViewData["ActivePage"] = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-hero-mini">
+    <div class="container">
+        <p style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--clr-warm-tan);margin-bottom:0.5rem;">
+            <a href="/Events" style="color:var(--clr-warm-tan);">
+                <i class="bi bi-arrow-left"></i> Wróć do wydarzeń
+            </a>
+        </p>
+        <h1 class="anim-fade-up">@Model?.Name</h1>
+    </div>
+</div>
+
+<section style="padding:4rem 0;">
+    <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start;">
+
+            <!-- Główna treść -->
+            <div>
+                <div class="dash-card reveal">
+                    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--clr-parchment);">
+                        <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--clr-slate);">
+                            <i class="bi bi-calendar3" style="color:var(--clr-gold);font-size:1.1rem;"></i>
+                            <span>
+                                @Model?.Date.ToString("dddd, d MMMM yyyy", new System.Globalization.CultureInfo("pl-PL"))
+                            </span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--clr-slate);">
+                            <i class="bi bi-clock" style="color:var(--clr-gold);font-size:1.1rem;"></i>
+                            <span>@Model?.Date.ToString("HH:mm")</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;color:var(--clr-slate);">
+                            <i class="bi bi-geo-alt" style="color:var(--clr-gold);font-size:1.1rem;"></i>
+                            <span>@Model?.Location</span>
+                        </div>
+                    </div>
+
+                    @if (Model?.Date >= DateTime.Today)
+                    {
+                        <div style="background:var(--clr-parchment);border-left:4px solid var(--clr-gold);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1.5rem;">
+                            <p style="margin:0;font-size:0.875rem;color:var(--clr-espresso);">
+                                <i class="bi bi-info-circle" style="color:var(--clr-gold);"></i>
+                                <strong>Wydarzenie nadchodzące</strong> — za
+                                @((Model.Date - DateTime.Today).Days) dni
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="background:#DCFCE7;border-left:4px solid var(--clr-success);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1.5rem;">
+                            <p style="margin:0;font-size:0.875rem;color:#166534;">
+                                <i class="bi bi-check-circle"></i>
+                                <strong>Wydarzenie zakończone</strong>
+                            </p>
+                        </div>
+                    }
+
+                    <p style="color:var(--clr-slate);line-height:1.8;">
+                        Szczegółowy opis wydarzenia zostanie dodany przez administratora.
+                    </p>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div style="display:flex;gap:0.75rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--clr-parchment);">
+                            <a href="/Events/Edit/@Model?.Id" class="btn-primary-choir">
+                                <i class="bi bi-pencil"></i> Edytuj wydarzenie
+                            </a>
+                            <form asp-action="Delete" asp-controller="Events"
+                                  asp-route-id="@Model?.Id" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit"
+                                        data-confirm="Czy na pewno chcesz usunąć to wydarzenie?"
+                                        class="btn-outline-choir"
+                                        style="border-color:#FECACA;color:var(--clr-danger);">
+                                    <i class="bi bi-trash"></i> Usuń
+                                </button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside style="position:sticky;top:calc(var(--nav-height) + 1rem);">
+                <div class="sidebar-card reveal">
+                    <h4><i class="bi bi-calendar3" style="color:var(--clr-gold)"></i> Szczegóły</h4>
+                    <div style="display:flex;flex-direction:column;gap:0.85rem;margin-top:1rem;">
+                        <div>
+                            <div style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-gold);margin-bottom:0.2rem;">Data</div>
+                            <div style="font-size:0.9rem;color:var(--clr-espresso);">
+                                @Model?.Date.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("pl-PL"))
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-gold);margin-bottom:0.2rem;">Godzina</div>
+                            <div style="font-size:0.9rem;color:var(--clr-espresso);">@Model?.Date.ToString("HH:mm")</div>
+                        </div>
+                        <div>
+                            <div style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-gold);margin-bottom:0.2rem;">Miejsce</div>
+                            <div style="font-size:0.9rem;color:var(--clr-espresso);">@Model?.Location</div>
+                        </div>
+                    </div>
+                </div>
+
+                @if (User.Identity?.IsAuthenticated == true && Model?.Date >= DateTime.Today)
+                {
+                    <div class="sidebar-card reveal">
+                        <h4><i class="bi bi-check2-square" style="color:var(--clr-gold)"></i> Moja obecność</h4>
+                        <p style="font-size:0.83rem;margin-bottom:1rem;">Czy weźmiesz udział w tym wydarzeniu?</p>
+                        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+                            <form asp-action="MarkAttendance" asp-controller="Attendance" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="eventId" value="@Model?.Id" />
+                                <input type="hidden" name="status" value="present" />
+                                <button type="submit" class="btn-primary-choir" style="width:100%;justify-content:center;">
+                                    <i class="bi bi-check-circle"></i> Będę obecny/a
+                                </button>
+                            </form>
+                            <form asp-action="MarkAttendance" asp-controller="Attendance" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="eventId" value="@Model?.Id" />
+                                <input type="hidden" name="status" value="maybe" />
+                                <button type="submit" class="btn-outline-choir" style="width:100%;justify-content:center;">
+                                    <i class="bi bi-question-circle"></i> Może będę
+                                </button>
+                            </form>
+                            <form asp-action="MarkAttendance" asp-controller="Attendance" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="eventId" value="@Model?.Id" />
+                                <input type="hidden" name="status" value="absent" />
+                                <button type="submit" class="btn-outline-choir"
+                                        style="width:100%;justify-content:center;border-color:#FECACA;color:var(--clr-danger);">
+                                    <i class="bi bi-x-circle"></i> Nie będę
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                }
+
+                <div class="sidebar-card reveal" style="text-align:center;">
+                    <a href="/Events" class="btn-outline-choir" style="width:100%;justify-content:center;">
+                        <i class="bi bi-arrow-left"></i> Wróć do listy
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        @@media (max-width: 768px) {
+            section > .container > div {
+                grid-template-columns: 1fr !important;
+            }
+
+            aside {
+                position: static !important;
+            }
+        }
+    </style>
+}
