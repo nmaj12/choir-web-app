@@ -17,4 +17,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\files\mp3\" />
+    <Folder Include="wwwroot\files\notes\" />
+    <Folder Include="wwwroot\files\pdf\" />
+    <Folder Include="wwwroot\gallery\" />
+  </ItemGroup>
+
 </Project>

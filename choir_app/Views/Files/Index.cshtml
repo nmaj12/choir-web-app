@@ -1,0 +1,34 @@
+﻿@model IEnumerable<choir_app.Models.FileResource>
+
+<h2>Pliki</h2>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+{
+    <a asp-action="Upload" class="btn btn-primary">Upload pliku</a>
+}
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Typ</th>
+            <th>Data</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var file in Model)
+        {
+            <tr>
+                <td>@file.FileName</td>
+                <td>@file.FileType</td>
+                <td>@file.UploadedAt.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a href="@file.FilePath" target="_blank">Podgląd</a> |
+                    <a asp-action="Download" asp-route-id="@file.Id">Pobierz</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
