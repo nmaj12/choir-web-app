@@ -1,0 +1,56 @@
+﻿@model IEnumerable<choir_app.Models.ChoirMember>
+
+<h2>Chórzyści</h2>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Dodaj chórzystę</a>
+    </p>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Imię i nazwisko</th>
+            <th>Email</th>
+            <th>Głos</th>
+            <th>Data dołączenia</th>
+
+            @if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+            {
+                <th>Akcje</th>
+            }
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User?.UserName</td>
+                <td>@item.User?.Email</td>
+                <td>@item.Voice</td>
+                <td>@item.JoinDate.ToString("yyyy-MM-dd")</td>
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+                {
+                    <td>
+                        <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-sm btn-warning">
+                            Edytuj
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.Id"
+                           class="btn btn-sm btn-danger"
+                           onclick="return confirm('Na pewno usunąć chórzystę?')">
+                            Usuń
+                        </a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

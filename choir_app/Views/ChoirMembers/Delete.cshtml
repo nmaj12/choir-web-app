@@ -1,0 +1,23 @@
+﻿@model choir_app.Models.ChoirMember
+
+<h2>Usuń chórzystę</h2>
+
+<h4>Czy na pewno chcesz usunąć tego użytkownika?</h4>
+
+<div>
+    <p><strong>Login:</strong> @Model.User?.UserName</p>
+    <p><strong>Email:</strong> @Model.User?.Email</p>
+    <p><strong>Głos:</strong> @Model.Voice</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <button type="submit" class="btn btn-danger">
+        Usuń
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Anuluj
+    </a>
+</form>
