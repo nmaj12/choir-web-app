@@ -1,0 +1,59 @@
+﻿@model choir_app.Models.ChoirDashboard
+
+<h2>Panel Chórzysty</h2>
+
+<hr />
+
+<h3>Ogłoszenia</h3>
+@foreach (var n in Model.News)
+{
+    <div>
+        <strong>@n.Title</strong>
+        <p>@n.Content</p>
+    </div>
+}
+
+<hr />
+
+<h3>Najbliższe wydarzenia</h3>
+@foreach (var e in Model.Events)
+{
+    <div>
+        <strong>@e.Name</strong> - @e.Date.ToShortDateString()
+    </div>
+}
+
+<hr />
+
+<h3>Materiały</h3>
+@foreach (var f in Model.Files)
+{
+    <div>
+        <a href="@f.FilePath">@f.FileName</a> (@f.FileType)
+    </div>
+}
+
+<hr />
+
+<h3>Moja obecność</h3>
+@foreach (var a in Model.MyAttendance)
+{
+    <div>
+        @a.Event.Name - @a.Status
+    </div>
+}
+
+<hr />
+
+<h3>Mój głos</h3>
+@if (Model.MyMember != null)
+{
+    <div>
+        <p>Voice: <strong>@Model.MyMember.Voice</strong></p>
+        <p>Join date: @Model.MyMember.JoinDate.ToShortDateString()</p>
+    </div>
+}
+else
+{
+    <p>Nie przypisano jeszcze do chóru</p>
+}
