@@ -3,6 +3,7 @@ using choir_app.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace choir_app.Controllers
 {
@@ -21,11 +22,13 @@ namespace choir_app.Controllers
             return View(events);
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         [HttpPost]
         public IActionResult Create(Events e)
         {
@@ -35,6 +38,7 @@ namespace choir_app.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Delete(int id)
         {
             var ev = _context.Events.Find(id);
@@ -48,6 +52,7 @@ namespace choir_app.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Edit(int id)
         {
             var ev = _context.Events.Find(id);
@@ -58,6 +63,7 @@ namespace choir_app.Controllers
             return View(ev);
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         [HttpPost]
         public IActionResult Edit(Events ev)
         {

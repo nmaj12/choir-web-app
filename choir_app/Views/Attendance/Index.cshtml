@@ -1,0 +1,22 @@
+﻿@model IEnumerable<choir_app.Models.Attendance>
+
+<h1>Moja obecność</h1>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Event ID</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var a in Model)
+    {
+        <tr>
+            <td>@a.Event.Name</td>
+            <td>@a.Status</td>
+        </tr>
+    }
+</table>
+
+<br>
+
+<a href="/Events">Powrót do wydarzeń</a>

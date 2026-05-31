@@ -1,5 +1,6 @@
 ﻿using choir_app.Data;
 using choir_app.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace choir_app.Controllers
@@ -20,11 +21,13 @@ namespace choir_app.Controllers
             return View(news);
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         [HttpPost]
         public IActionResult Create(News n)
         {
@@ -36,6 +39,7 @@ namespace choir_app.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Delete(int id)
         {
             var n = _context.News.Find(id);
@@ -49,6 +53,7 @@ namespace choir_app.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Edit(int id)
         {
             var n = _context.News.Find(id);
@@ -59,6 +64,7 @@ namespace choir_app.Controllers
             return View(n);
         }
 
+        [Authorize(Roles = "Admin,Dyrygent")]
         [HttpPost]
         public IActionResult Edit(News n)
         {
