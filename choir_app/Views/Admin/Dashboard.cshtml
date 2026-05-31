@@ -1,0 +1,277 @@
+﻿@model choir_app.Models.AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Panel Administratora";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" aria-label="Menu administratora">
+        <div class="admin-sidebar-brand">
+            <i class="bi bi-gear-wide-connected" style="margin-right:0.5rem;"></i>
+            Panel admina
+            <span>Chór Akademicki CMS</span>
+        </div>
+        <nav>
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Przegląd</div>
+                <a href="/Admin/Dashboard" class="admin-nav-item active">
+                    <i class="bi bi-speedometer2"></i> Dashboard
+                </a>
+            </div>
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Treść</div>
+                <a href="/Events" class="admin-nav-item">
+                    <i class="bi bi-calendar-event"></i> Wydarzenia
+                </a>
+                <a href="/Events/Create" class="admin-nav-item">
+                    <i class="bi bi-plus-square"></i> Nowe wydarzenie
+                </a>
+                <a href="/Gallery" class="admin-nav-item">
+                    <i class="bi bi-images"></i> Galeria
+                </a>
+                <a href="/Gallery/Create" class="admin-nav-item">
+                    <i class="bi bi-image-fill"></i> Dodaj zdjęcie
+                </a>
+                <a href="/News" class="admin-nav-item">
+                    <i class="bi bi-newspaper"></i> Aktualności
+                </a>
+                <a href="/News/Create" class="admin-nav-item">
+                    <i class="bi bi-plus-square"></i> Nowa aktualność
+                </a>
+            </div>
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Chórzysci</div>
+                <a href="/Attendance" class="admin-nav-item">
+                    <i class="bi bi-check2-square"></i> Obecności
+                </a>
+            </div>
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Konto</div>
+                <form asp-action="Logout" asp-controller="Account" method="post" style="display:contents;">
+                    <button type="submit" class="admin-nav-item"
+                            style="background:none;border:none;width:100%;text-align:left;cursor:pointer;color:rgba(249,245,238,0.6);">
+                        <i class="bi bi-box-arrow-right"></i> Wyloguj
+                    </button>
+                </form>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="admin-main">
+        <div class="admin-topbar">
+            <div>
+                <h1>Dashboard</h1>
+                <p style="font-size:0.85rem;color:var(--clr-light-slate);margin:0;">
+                    @DateTime.Now.ToString("dddd, d MMMM yyyy", new System.Globalization.CultureInfo("pl-PL"))
+                </p>
+            </div>
+            <div class="admin-topbar-actions">
+                <a href="/Events/Create" class="btn-primary-choir">
+                    <i class="bi bi-plus-lg"></i> Nowe wydarzenie
+                </a>
+                <a href="/Gallery/Create" class="btn-outline-choir">
+                    <i class="bi bi-upload"></i> Dodaj zdjęcie
+                </a>
+            </div>
+        </div>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="form-success-msg" style="margin-bottom:1.5rem;">
+                <i class="bi bi-check-circle"></i> @TempData["Success"]
+            </div>
+        }
+
+        <!-- Statystyki -->
+        <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+                <div class="stat-top">
+                    <div class="stat-top-icon" style="background:#FEF3C7;color:#92400E;">
+                        <i class="bi bi-people"></i>
+                    </div>
+                </div>
+                <div class="stat-val">@Model.TotalMembers</div>
+                <div class="stat-name">Chórzystów</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-top">
+                    <div class="stat-top-icon" style="background:#DCFCE7;color:#166534;">
+                        <i class="bi bi-calendar-event"></i>
+                    </div>
+                </div>
+                <div class="stat-val">@Model.UpcomingEventsCount</div>
+                <div class="stat-name">Nadchodzące wydarzenia</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-top">
+                    <div class="stat-top-icon" style="background:#DBEAFE;color:#1D4ED8;">
+                        <i class="bi bi-images"></i>
+                    </div>
+                </div>
+                <div class="stat-val">@Model.TotalPhotos</div>
+                <div class="stat-name">Zdjęć w galerii</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-top">
+                    <div class="stat-top-icon" style="background:#FCE7F3;color:#9D174D;">
+                        <i class="bi bi-newspaper"></i>
+                    </div>
+                </div>
+                <div class="stat-val">@Model.TotalNews</div>
+                <div class="stat-name">Aktualności</div>
+            </div>
+        </div>
+
+        <!-- Tabele -->
+        <div class="admin-content-grid">
+
+            <!-- Ostatnie wydarzenia -->
+            <div class="dash-card">
+                <div class="dash-card-header">
+                    <h3>Ostatnie wydarzenia</h3>
+                    <a href="/Events/Create" class="btn-primary-choir"
+                       style="font-size:0.8rem;padding:0.4rem 0.9rem;">
+                        <i class="bi bi-plus"></i> Dodaj
+                    </a>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table class="cms-table" aria-label="Lista wydarzeń">
+                        <thead>
+                            <tr>
+                                <th>Nazwa</th>
+                                <th>Data</th>
+                                <th>Miejsce</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.RecentEvents.Any())
+                            {
+                                @foreach (var evt in Model.RecentEvents)
+                                {
+                                    <tr>
+                                        <td style="font-weight:500;">@evt.Name</td>
+                                        <td>@evt.Date.ToString("dd.MM.yyyy HH:mm")</td>
+                                        <td style="font-size:0.82rem;color:var(--clr-light-slate);">@evt.Location</td>
+                                        <td>
+                                            <div class="table-actions">
+                                                <a href="/Events/Edit/@evt.Id" class="btn-icon" title="Edytuj">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                                <a href="/Events/Details/@evt.Id" class="btn-icon" title="Podgląd">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                                <form asp-action="Delete" asp-controller="Events"
+                                                      asp-route-id="@evt.Id" method="post" style="display:inline;">
+                                                    @Html.AntiForgeryToken()
+                                                    <button type="submit" class="btn-icon danger"
+                                                            data-confirm="Czy na pewno chcesz usunąć '@evt.Name'?"
+                                                            title="Usuń">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="4" style="text-align:center;color:var(--clr-light-slate);padding:2rem;">
+                                        Brak wydarzeń
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Prawa kolumna -->
+            <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+                <!-- Aktualności -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <h3>Aktualności</h3>
+                        <a href="/News/Create" class="btn-primary-choir"
+                           style="font-size:0.8rem;padding:0.4rem 0.9rem;">
+                            <i class="bi bi-plus"></i> Dodaj
+                        </a>
+                    </div>
+                    @if (Model.RecentNews.Any())
+                    {
+                        @foreach (var news in Model.RecentNews)
+                        {
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.65rem 0;border-bottom:1px solid var(--clr-parchment);">
+                                <div>
+                                    <div style="font-size:0.875rem;font-weight:500;">@news.Title</div>
+                                    <div style="font-size:0.72rem;color:var(--clr-light-slate);">
+                                        @news.CreatedAt.ToString("dd.MM.yyyy")
+                                    </div>
+                                </div>
+                                <div class="table-actions">
+                                    <a href="/News/Edit/@news.Id" class="btn-icon" title="Edytuj">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form asp-action="Delete" asp-controller="News"
+                                          asp-route-id="@news.Id" method="post" style="display:inline;">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn-icon danger"
+                                                data-confirm="Usuń aktualność?"
+                                                title="Usuń">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p style="color:var(--clr-light-slate);font-size:0.875rem;padding:0.5rem 0;">Brak aktualności.</p>
+                    }
+                </div>
+
+                <!-- Ostatnia aktywność -->
+                @if (Model.RecentActivity.Any())
+                {
+                    <div class="dash-card">
+                        <div class="dash-card-header"><h3>Ostatnia aktywność</h3></div>
+                        @foreach (var log in Model.RecentActivity)
+                        {
+                            <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.65rem 0;border-bottom:1px solid var(--clr-parchment);">
+                                <div style="width:30px;height:30px;border-radius:50%;background:var(--clr-parchment);display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;color:var(--clr-gold);">
+                                    <i class="bi bi-@log.Icon"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size:0.83rem;color:var(--clr-espresso);">@log.Message</div>
+                                    <div style="font-size:0.72rem;color:var(--clr-light-slate);">@log.TimeAgo</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+
+                <!-- Szybkie akcje -->
+                <div class="dash-card">
+                    <div class="dash-card-header"><h3>Szybkie akcje</h3></div>
+                    <div style="display:flex;flex-direction:column;gap:0.5rem;">
+                        <a href="/Gallery/Create" class="btn-outline-choir" style="justify-content:flex-start;gap:0.75rem;">
+                            <i class="bi bi-cloud-upload"></i> Prześlij zdjęcia
+                        </a>
+                        <a href="/News/Create" class="btn-outline-choir" style="justify-content:flex-start;gap:0.75rem;">
+                            <i class="bi bi-newspaper"></i> Nowa aktualność
+                        </a>
+                        <a href="/Events/Create" class="btn-outline-choir" style="justify-content:flex-start;gap:0.75rem;">
+                            <i class="bi bi-calendar-plus"></i> Nowe wydarzenie
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

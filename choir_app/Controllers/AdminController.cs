@@ -1,61 +1,40 @@
 ﻿using choir_app.Data;
+using choir_app.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace choir_app.Controllers
 {
-    [Authorize(Roles = "Admin,Dyrygent")]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AdminController(
-            ApplicationDbContext context,
-            UserManager<ApplicationUser> userManager)
+        public AdminController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
-        // DASHBOARD
-        public IActionResult Index()
+        public async Task<IActionResult> Dashboard()
         {
-            ViewBag.UsersCount = _userManager.Users.Count();
-            ViewBag.EventsCount = _context.Events.Count();
-            ViewBag.NewsCount = _context.News.Count();
-            ViewBag.ImagesCount = _context.GalleryImages.Count();
-            ViewBag.FilesCount = _context.FileResources.Count();
-            ViewBag.ChoirCount = _context.ChoirMembers.Count();
-
-            return View();
-        }
-
-        // USERS
-        public IActionResult Users()
-        {
-            var users = _userManager.Users.ToList();
-            return View(users);
-        }
-
-        // ASSIGN ROLE
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AssignRole(string userId, string role)
-        {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user == null)
-                return NotFound();
-
-            var currentRoles = await _userManager.GetRolesAsync(user);
-
-            await _userManager.RemoveFromRolesAsync(user, currentRoles);
-
-            await _userManager.AddToRoleAsync(user, role);
-
-            return RedirectToAction("Users");
+            var vm = new AdminDashboardViewModel
+            {
+                TotalMembers = await _context.ChoirMembers.CountAsync(m => m.IsActive),
+                UpcomingEventsCount = await _context.Events.CountAsync(e => e.Date >= DateTime.Today),
+                TotalPhotos = await _context.GalleryImages.CountAsync(),
+                TotalNews = await _context.News.CountAsync(),
+                RecentEvents = await _context.Events
+                                        .OrderByDescending(e => e.Date)
+                                        .Take(5).ToListAsync(),
+                RecentNews = await _context.News
+                                        .OrderByDescending(n => n.CreatedAt)
+                                        .Take(5).ToListAsync(),
+                RecentPhotos = await _context.GalleryImages
+                                        .OrderByDescending(g => g.CreatedAt)
+                                        .Take(4).ToListAsync(),
+            };
+            return View(vm);
         }
     }
 }
