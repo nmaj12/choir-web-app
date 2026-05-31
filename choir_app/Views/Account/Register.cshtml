@@ -1,29 +1,135 @@
 ﻿@{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Rejestracja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Rejestracja</h2>
+<div class="login-wrapper">
+    <div class="login-card" style="max-width:500px;">
 
-<form method="post" asp-action="Register">
-    <div>
-        <label>Email</label>
-        <input type="email" name="email" required />
+        <div class="login-logo">
+            <div style="width:56px;height:56px;background:var(--clr-espresso);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+                <i class="bi bi-person-plus" style="font-size:1.6rem;color:var(--clr-gold);"></i>
+            </div>
+            <h2>Dołącz do chóru</h2>
+            <p>Utwórz konto chórzysty</p>
+        </div>
+
+        @if (TempData["Error"] != null)
+        {
+            <div style="background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;border-radius:8px;padding:0.75rem 1rem;font-size:0.875rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;">
+                <i class="bi bi-exclamation-circle"></i> @TempData["Error"]
+            </div>
+        }
+
+        <div asp-validation-summary="ModelOnly"
+             style="background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;border-radius:8px;padding:0.75rem 1rem;font-size:0.875rem;margin-bottom:1.25rem;"></div>
+
+        <form asp-action="Register" asp-controller="Account" method="post" data-validate>
+            @Html.AntiForgeryToken()
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                <div class="form-group">
+                    <label class="form-label">Imię <span class="required">*</span></label>
+                    <input type="text" name="FirstName" class="form-control-choir"
+                           placeholder="Jan" required />
+                    <div class="form-error" id="FirstName-error" style="display:none;">
+                        <i class="bi bi-exclamation-circle"></i><span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Nazwisko <span class="required">*</span></label>
+                    <input type="text" name="LastName" class="form-control-choir"
+                           placeholder="Kowalski" required />
+                    <div class="form-error" id="LastName-error" style="display:none;">
+                        <i class="bi bi-exclamation-circle"></i><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Adres e-mail <span class="required">*</span></label>
+                <input type="email" name="Email" class="form-control-choir"
+                       placeholder="twoj@email.pl" required autocomplete="email" />
+                <div class="form-error" id="Email-error" style="display:none;">
+                    <i class="bi bi-exclamation-circle"></i><span></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Hasło <span class="required">*</span></label>
+                <div style="position:relative;">
+                    <input type="password" name="Password" id="passwordInput"
+                           class="form-control-choir"
+                           placeholder="Minimum 6 znaków" required
+                           data-minlength="6"
+                           autocomplete="new-password"
+                           style="padding-right:2.8rem;" />
+                    <button type="button" id="togglePassword"
+                            style="position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--clr-light-slate);font-size:1rem;"
+                            aria-label="Pokaż hasło">
+                        <i class="bi bi-eye" id="toggleIcon"></i>
+                    </button>
+                </div>
+                <div class="form-error" id="Password-error" style="display:none;">
+                    <i class="bi bi-exclamation-circle"></i><span></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Potwierdź hasło <span class="required">*</span></label>
+                <input type="password" name="ConfirmPassword" id="confirmPasswordInput"
+                       class="form-control-choir"
+                       placeholder="Powtórz hasło" required
+                       data-match="passwordInput"
+                       autocomplete="new-password" />
+                <div class="form-error" id="ConfirmPassword-error" style="display:none;">
+                    <i class="bi bi-exclamation-circle"></i><span></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Głos</label>
+                <select name="VoiceType" class="form-control-choir">
+                    <option value="">-- Wybierz głos (opcjonalnie) --</option>
+                    <option value="Sopran1">Sopran I</option>
+                    <option value="Sopran2">Sopran II</option>
+                    <option value="Alt1">Alt I</option>
+                    <option value="Alt2">Alt II</option>
+                    <option value="Tenor1">Tenor I</option>
+                    <option value="Tenor2">Tenor II</option>
+                    <option value="Baritone">Baryton</option>
+                    <option value="Bass">Bas</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-primary-choir"
+                    style="width:100%;justify-content:center;padding:0.85rem;margin-top:0.5rem;">
+                <i class="bi bi-person-check"></i> Utwórz konto
+            </button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.25rem;font-size:0.85rem;color:var(--clr-light-slate);">
+            Masz już konto?
+            <a href="/Account/Login" style="color:var(--clr-gold);font-weight:500;">Zaloguj się</a>
+        </p>
+        <p style="text-align:center;margin-top:0.5rem;font-size:0.82rem;">
+            <a href="/" style="color:var(--clr-gold);">
+                <i class="bi bi-arrow-left"></i> Wróć do strony głównej
+            </a>
+        </p>
     </div>
+</div>
 
-    <div>
-        <label>Hasło</label>
-        <input type="password" name="password" required />
-    </div>
-
-    <div>
-        <label>Powtórz hasło</label>
-        <input type="password" name="confirmPassword" required />
-    </div>
-
-    <button type="submit">Zarejestruj</button>
-</form>
-
-<p>
-    Masz już konto?
-    <a href="/Account/Login">Zaloguj się</a>
-</p>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.getElementById('togglePassword')?.addEventListener('click', function () {
+            var i = document.getElementById('passwordInput');
+            var ic = document.getElementById('toggleIcon');
+            if (i.type === 'password') { i.type = 'text'; ic.className = 'bi bi-eye-slash'; }
+            else { i.type = 'password'; ic.className = 'bi bi-eye'; }
+        });
+    </script>
+}
