@@ -1,7 +1,7 @@
 ﻿using choir_app.Data;
 using choir_app.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace choir_app.Controllers
 {
@@ -15,70 +15,81 @@ namespace choir_app.Controllers
             _context = context;
             _env = env;
         }
-        public IActionResult Index()
+
+        // GET /Gallery
+        public async Task<IActionResult> Index()
         {
-            var images = _context.GalleryImages.ToList();
-            return View(images);
+            var photos = await _context.GalleryImages
+                .OrderByDescending(g => g.CreatedAt)
+                .ToListAsync();
+            return View(photos);
         }
 
-        [Authorize(Roles = "Admin,Dyrygent")]
-        public IActionResult Upload()
+        // GET /Gallery/Details/5
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            var photo = await _context.GalleryImages.FindAsync(id);
+            if (photo == null) return NotFound();
+            return View(photo);
         }
 
-        // UPLOAD
+        // GET /Gallery/Create  [Admin only]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
+        public IActionResult Create() => View();
+
+        // POST /Gallery/Create
         [HttpPost]
-        [Authorize(Roles = "Admin,Dyrygent")]
-        public async Task<IActionResult> Upload(IFormFile image, string title)
+        [ValidateAntiForgeryToken]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create(GalleryImage model, IFormFile? imageFile)
         {
-            if (image == null || image.Length == 0)
-                return RedirectToAction("Index");
-
-            var folder = Path.Combine(_env.WebRootPath, "gallery");
-
-            if (!Directory.Exists(folder))
-                Directory.CreateDirectory(folder);
-
-            var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);
-
-            var fullPath = Path.Combine(folder, fileName);
-
-            using (var stream = new FileStream(fullPath, FileMode.Create))
+            if (imageFile != null && imageFile.Length > 0)
             {
-                await image.CopyToAsync(stream);
+                var uploadsDir = Path.Combine(_env.WebRootPath, "uploads", "gallery");
+                Directory.CreateDirectory(uploadsDir);
+
+                var fileName = Guid.NewGuid() + Path.GetExtension(imageFile.FileName);
+                var filePath = Path.Combine(uploadsDir, fileName);
+
+                using var stream = new FileStream(filePath, FileMode.Create);
+                await imageFile.CopyToAsync(stream);
+
+                model.ImageUrl = $"/uploads/gallery/{fileName}";
             }
 
-            var img = new GalleryImage
+            if (ModelState.IsValid)
             {
-                Title = title,
-                ImageUrl = "/gallery/" + fileName
-            };
-
-            _context.GalleryImages.Add(img);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction("Index");
+                model.CreatedAt = DateTime.Now;
+                model.UploadedById = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
+                _context.GalleryImages.Add(model);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Zdjęcie zostało dodane.";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(model);
         }
 
-        // DELETE
-        [Authorize(Roles = "Admin,Dyrygent")]
-        public IActionResult Delete(int id)
+        // POST /Gallery/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(int id)
         {
-            var img = _context.GalleryImages.FirstOrDefault(x => x.Id == id);
-
-            if (img != null)
+            var photo = await _context.GalleryImages.FindAsync(id);
+            if (photo != null)
             {
-                var fullPath = Path.Combine(_env.WebRootPath, img.ImageUrl.TrimStart('/'));
-
-                if (System.IO.File.Exists(fullPath))
-                    System.IO.File.Delete(fullPath);
-
-                _context.GalleryImages.Remove(img);
-                _context.SaveChanges();
+                // Usuń plik z dysku jeśli istnieje
+                if (!string.IsNullOrEmpty(photo.ImageUrl))
+                {
+                    var filePath = Path.Combine(_env.WebRootPath, photo.ImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(filePath))
+                        System.IO.File.Delete(filePath);
+                }
+                _context.GalleryImages.Remove(photo);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Zdjęcie zostało usunięte.";
             }
-
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }
