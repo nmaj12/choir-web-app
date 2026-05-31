@@ -3,32 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="@ViewData["Description"] ?? " Chór Akademicki - oficjalna strona internetowa"" />
     <title>@ViewData["Title"] - Chór Akademicki</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- App CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
     @await RenderSectionAsync("Styles", required: false)
 </head>
-<body class="@(ViewData["BodyClass"] ?? "")">
+<body>
 
-    <!-- Navbar -->
     <nav class="choir-nav" id="mainNav">
         <div class="container">
             <div class="nav-inner">
-                <!-- Brand -->
+
                 <a class="nav-brand" href="/">
                     <span class="brand-icon"><i class="bi bi-music-note-beamed"></i></span>
                     <span class="brand-text">
@@ -37,18 +28,16 @@
                     </span>
                 </a>
 
-                <!-- Desktop Nav Links -->
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="/" class="nav-link @(ViewData["ActivePage"] as string == "Home" ? "active" : "")">Strona główna</a></li>
-                    <li><a href="/galeria" class="nav-link @(ViewData["ActivePage"] as string == "Gallery" ? "active" : "")">Galeria</a></li>
-                    <li><a href="/wydarzenia" class="nav-link @(ViewData["ActivePage"] as string == "Events" ? "active" : "")">Wydarzenia</a></li>
-                    <li><a href="/o-nas" class="nav-link @(ViewData["ActivePage"] as string == "About" ? "active" : "")">O nas</a></li>
-                    <li><a href="/kontakt" class="nav-link @(ViewData["ActivePage"] as string == "Contact" ? "active" : "")">Kontakt</a></li>
+                    <li><a href="/" class="nav-link @(ViewData["ActivePage"] as string == "Home"    ? "active" : "")">Strona główna</a></li>
+                    <li><a href="/Gallery" class="nav-link @(ViewData["ActivePage"] as string == "Gallery" ? "active" : "")">Galeria</a></li>
+                    <li><a href="/Events" class="nav-link @(ViewData["ActivePage"] as string == "Events"  ? "active" : "")">Wydarzenia</a></li>
+                    <li><a href="/Home/About" class="nav-link @(ViewData["ActivePage"] as string == "About"   ? "active" : "")">O nas</a></li>
+                    <li><a href="/Home/Contact" class="nav-link @(ViewData["ActivePage"] as string == "Contact" ? "active" : "")">Kontakt</a></li>
                 </ul>
 
-                <!-- Auth / Member -->
                 <div class="nav-auth">
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
                         <div class="dropdown">
                             <button class="btn-member dropdown-toggle" data-bs-toggle="dropdown">
@@ -56,15 +45,25 @@
                                 <span>@User.Identity.Name</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="/chorzysty/dashboard"><i class="bi bi-speedometer2 me-2"></i>Panel chórzysty</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="/Member/Dashboard">
+                                        <i class="bi bi-speedometer2 me-2"></i>Panel chórzysty
+                                    </a>
+                                </li>
                                 @if (User.IsInRole("Admin"))
                                 {
-                                    <li><a class="dropdown-item" href="/admin/dashboard"><i class="bi bi-gear me-2"></i>Panel admina</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="/Admin/Dashboard">
+                                            <i class="bi bi-gear me-2"></i>Panel admina
+                                        </a>
+                                    </li>
                                 }
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form asp-action="Logout" asp-controller="Account" method="post">
-                                        <button type="submit" class="dropdown-item text-danger"><i class="bi bi-box-arrow-right me-2"></i>Wyloguj</button>
+                                        <button type="submit" class="dropdown-item text-danger">
+                                            <i class="bi bi-box-arrow-right me-2"></i>Wyloguj
+                                        </button>
                                     </form>
                                 </li>
                             </ul>
@@ -72,58 +71,53 @@
                     }
                     else
                     {
-                        <a href="/logowanie" class="btn-login">Zaloguj się</a>
+                        <a href="/Account/Login" class="btn-login">Zaloguj się</a>
                     }
                 </div>
 
-                <!-- Mobile Hamburger -->
                 <button class="nav-hamburger" id="hamburgerBtn" aria-label="Otwórz menu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <ul>
                 <li><a href="/">Strona główna</a></li>
-                <li><a href="/galeria">Galeria</a></li>
-                <li><a href="/wydarzenia">Wydarzenia</a></li>
-                <li><a href="/o-nas">O nas</a></li>
-                <li><a href="/kontakt">Kontakt</a></li>
-                @if (User.Identity.IsAuthenticated)
+                <li><a href="/Gallery">Galeria</a></li>
+                <li><a href="/Events">Wydarzenia</a></li>
+                <li><a href="/Home/About">O nas</a></li>
+                <li><a href="/Home/Contact">Kontakt</a></li>
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
                     <li class="mobile-divider"></li>
-                    <li><a href="/chorzysty/dashboard">Panel chórzysty</a></li>
+                    <li><a href="/Member/Dashboard">Panel chórzysty</a></li>
                     @if (User.IsInRole("Admin"))
                     {
-                        <li><a href="/admin/dashboard">Panel admina</a></li>
+                        <li><a href="/Admin/Dashboard">Panel admina</a></li>
                     }
                 }
                 else
                 {
                     <li class="mobile-divider"></li>
-                    <li><a href="/logowanie" class="mobile-login">Zaloguj się</a></li>
+                    <li><a href="/Account/Login" class="mobile-login">Zaloguj się</a></li>
                 }
             </ul>
         </div>
     </nav>
 
-    <!-- Page Content -->
     <main id="pageContent">
         @RenderBody()
     </main>
 
-    <!-- Footer -->
     <footer class="choir-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="/" class="footer-logo">
-                        <i class="bi bi-music-note-beamed"></i>
-                        Chór Akademicki
+                        <i class="bi bi-music-note-beamed"></i> Chór Akademicki
                     </a>
-                    <p>Łączymy głosy, serca i pasję od ponad 30 lat. Zapraszamy do wspólnego tworzenia muzyki.</p>
+                    <p>Łączymy głosy, serca i pasję od ponad 30 lat.</p>
                     <div class="footer-socials">
                         <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
                         <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
@@ -134,19 +128,19 @@
                     <h4>Nawigacja</h4>
                     <ul>
                         <li><a href="/">Strona główna</a></li>
-                        <li><a href="/galeria">Galeria</a></li>
-                        <li><a href="/wydarzenia">Wydarzenia</a></li>
-                        <li><a href="/o-nas">O nas</a></li>
-                        <li><a href="/kontakt">Kontakt</a></li>
+                        <li><a href="/Gallery">Galeria</a></li>
+                        <li><a href="/Events">Wydarzenia</a></li>
+                        <li><a href="/Home/About">O nas</a></li>
+                        <li><a href="/Home/Contact">Kontakt</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Informacje</h4>
+                    <h4>Dla chórzystów</h4>
                     <ul>
-                        <li><a href="/historia">Historia chóru</a></li>
-                        <li><a href="/repertuar">Repertuar</a></li>
-                        <li><a href="/dyrekcja">Dyrekcja</a></li>
-                        <li><a href="/dolacz">Dołącz do nas</a></li>
+                        <li><a href="/Member/Dashboard">Panel chórzysty</a></li>
+                        <li><a href="/Events">Kalendarz prób</a></li>
+                        <li><a href="/Account/Login">Logowanie</a></li>
+                        <li><a href="/Account/Register">Rejestracja</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -160,17 +154,13 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; @DateTime.Now.Year Chór Akademicki. Wszelkie prawa zastrzeżone.</p>
-                <p>Projekt edukacyjny — ASP.NET Core MVC</p>
+                <p>ASP.NET Core MVC</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- App JS -->
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

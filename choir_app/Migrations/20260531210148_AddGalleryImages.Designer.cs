@@ -12,8 +12,8 @@ using choir_app.Data;
 namespace choir_app.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260531150805_AddAttendanceUserRelation")]
-    partial class AddAttendanceUserRelation
+    [Migration("20260531210148_AddGalleryImages")]
+    partial class AddGalleryImages
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

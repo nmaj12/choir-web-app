@@ -12,7 +12,7 @@ using choir_app.Data;
 namespace choir_app.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260531145233_InitialCreate")]
+    [Migration("20260531205826_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -243,11 +243,13 @@ namespace choir_app.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Attendances");
                 });
@@ -447,7 +449,15 @@ namespace choir_app.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("choir_app.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Event");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("choir_app.Models.ChoirMember", b =>
