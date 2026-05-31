@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\choir_app.props" />
-</Project>

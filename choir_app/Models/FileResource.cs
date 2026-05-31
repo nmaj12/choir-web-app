@@ -7,11 +7,12 @@ namespace choir_app.Models
         [Key]
         public int Id { get; set; }
 
-        public string FileName { get; set; }
+        public string FileName { get; set; } = string.Empty;
 
-        public string FilePath { get; set; }
+        [Required]
+        public string FilePath { get; set; } = string.Empty;
 
-        public string FileType { get; set; } // pdf/mp3/nuty
+        public string FileType { get; set; } = string.Empty; // pdf/mp3/nuty
 
         public DateTime UploadedAt { get; set; } = DateTime.Now;
     }
