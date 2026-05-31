@@ -1,4 +1,5 @@
-﻿using choir_app.Models.Enums;
+﻿using choir_app.Data;
+using choir_app.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,7 +14,7 @@ namespace choir_app.Models
         [Required]
         public string UserId { get; set; }
 
-        public IdentityUser User { get; set; }
+        public ApplicationUser User { get; set; }
 
         [Required]
         public VoiceType Voice { get; set; }

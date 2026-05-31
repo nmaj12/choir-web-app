@@ -1,0 +1,61 @@
+﻿@model IEnumerable<choir_app.Data.ApplicationUser>
+
+<h2>Użytkownicy</h2>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Login</th>
+            <th>Zmień rolę</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+
+                <td>@user.Email</td>
+
+                <td>@user.UserName</td>
+
+                <td>
+                    <form asp-action="AssignRole" method="post" class="d-flex gap-2">
+
+                        <input type="hidden"
+                               name="userId"
+                               value="@user.Id" />
+
+                        <select name="role" class="form-control">
+
+                            <option value="Admin">
+                                Admin
+                            </option>
+
+                            <option value="Dyrygent">
+                                Dyrygent
+                            </option>
+
+                            <option value="Chorzysta">
+                                Chórzysta
+                            </option>
+
+                        </select>
+
+                        <button type="submit"
+                                class="btn btn-primary btn-sm">
+                            Zapisz
+                        </button>
+
+                    </form>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
