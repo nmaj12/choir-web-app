@@ -19,6 +19,7 @@ namespace choir_app.Data
         public DbSet<GalleryImage> GalleryImages { get; set; }
         public DbSet<FileResource> FileResources { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

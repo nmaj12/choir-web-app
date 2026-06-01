@@ -57,7 +57,9 @@ namespace choir_app.Controllers
             var user = new ApplicationUser
             {
                 UserName = email,
-                Email = email
+                Email = email,
+                EmailConfirmed = true,
+                IsActive = true
             };
 
             var result = await _userManager.CreateAsync(user, password);
