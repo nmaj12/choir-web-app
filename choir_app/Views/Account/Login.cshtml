@@ -36,7 +36,8 @@
                 <input asp-for="Email"
                        class="form-control-choir"
                        placeholder="twoj@email.pl"
-                       autocomplete="email" />
+                       autocomplete="email"
+                       name="email" />
                 <span asp-validation-for="Email" class="form-error"></span>
             </div>
 
@@ -50,7 +51,8 @@
                            class="form-control-choir"
                            placeholder="••••••••"
                            autocomplete="current-password"
-                           style="padding-right:2.8rem;" />
+                           style="padding-right:2.8rem;"
+                           name="password" />
                     <button type="button" id="togglePassword"
                             style="position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--clr-light-slate);font-size:1rem;"
                             aria-label="Pokaż hasło">
@@ -76,7 +78,12 @@
             </button>
         </form>
 
-        <p style="text-align:center;margin-top:1.5rem;font-size:0.82rem;color:var(--clr-light-slate);">
+        <p style="text-align:center;margin-top:1.25rem;font-size:0.85rem;color:var(--clr-light-slate);">
+            Nie masz jeszcze konta?
+            <a href="/Account/Register" style="color:var(--clr-gold);font-weight:500;">Zarejestruj się</a>
+        </p>
+
+        <p style="text-align:center;margin-top:0.5rem;font-size:0.82rem;color:var(--clr-light-slate);">
             <a href="/" style="color:var(--clr-gold);">
                 <i class="bi bi-arrow-left"></i> Wróć do strony głównej
             </a>
