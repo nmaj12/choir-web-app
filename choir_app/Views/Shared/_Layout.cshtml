@@ -46,7 +46,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item" href="/Member/Dashboard">
+                                    <a class="dropdown-item" asp-controller="ChoirDashboard" asp-action="Index">
                                         <i class="bi bi-speedometer2 me-2"></i>Panel chórzysty
                                     </a>
                                 </li>
@@ -91,7 +91,7 @@
                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
                     <li class="mobile-divider"></li>
-                    <li><a href="/Member/Dashboard">Panel chórzysty</a></li>
+                    <li><a asp-controller="ChoirDashboard" asp-action="Index">Panel chórzysty</a></li>
                     @if (User.IsInRole("Admin"))
                     {
                         <li><a href="/Admin/Dashboard">Panel admina</a></li>
@@ -137,7 +137,7 @@
                 <div class="footer-links">
                     <h4>Dla chórzystów</h4>
                     <ul>
-                        <li><a href="/Member/Dashboard">Panel chórzysty</a></li>
+                        <li><a asp-controller="ChoirDashboard" asp-action="Index">Panel chórzysty</a></li>
                         <li><a href="/Events">Kalendarz prób</a></li>
                         <li><a href="/Account/Login">Logowanie</a></li>
                         <li><a href="/Account/Register">Rejestracja</a></li>
