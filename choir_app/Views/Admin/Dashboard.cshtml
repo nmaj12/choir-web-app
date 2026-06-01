@@ -152,7 +152,7 @@
                                 @foreach (var evt in Model.RecentEvents)
                                 {
                                     <tr>
-                                        <td style="font-weight:500;">@evt.Name</td>
+                                        <td style="font-weight:500;">@evt.Title</td>
                                         <td>@evt.Date.ToString("dd.MM.yyyy HH:mm")</td>
                                         <td style="font-size:0.82rem;color:var(--clr-light-slate);">@evt.Location</td>
                                         <td>
@@ -167,7 +167,7 @@
                                                       asp-route-id="@evt.Id" method="post" style="display:inline;">
                                                     @Html.AntiForgeryToken()
                                                     <button type="submit" class="btn-icon danger"
-                                                            data-confirm="Czy na pewno chcesz usunąć '@evt.Name'?"
+                                                            data-confirm="Czy na pewno chcesz usunąć '@evt.Title'?"
                                                             title="Usuń">
                                                         <i class="bi bi-trash"></i>
                                                     </button>

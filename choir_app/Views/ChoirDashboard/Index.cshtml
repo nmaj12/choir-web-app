@@ -19,7 +19,7 @@
 @foreach (var e in Model.Events)
 {
     <div>
-        <strong>@e.Name</strong> - @e.Date.ToShortDateString()
+        <strong>@e.Title</strong> - @e.Date.ToShortDateString()
     </div>
 }
 
@@ -39,7 +39,7 @@
 @foreach (var a in Model.MyAttendance)
 {
     <div>
-        @a.Event.Name - @a.Status
+        @a.Event.Title - @a.Status
     </div>
 }
 

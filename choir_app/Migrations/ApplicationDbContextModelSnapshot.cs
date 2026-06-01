@@ -221,6 +221,25 @@ namespace choir_app.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "73ca6643-30ad-4364-979d-e200a7f47774",
+                            Email = "admin@choir.pl",
+                            EmailConfirmed = true,
+                            IsActive = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@CHOIR.PL",
+                            NormalizedUserName = "ADMIN@CHOIR.PL",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHngQQy+jcRIwbiEbsznpHGAxmARGMvj0Zw6uovhaM/+ob8kAuaXSLFRNbNDqeH1uA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4e11d6b8-eccf-4536-829d-b070b61b5efa",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@choir.pl"
+                        });
                 });
 
             modelBuilder.Entity("choir_app.Models.Attendance", b =>
@@ -281,6 +300,17 @@ namespace choir_app.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ChoirMembers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsActive = true,
+                            JoinDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Notes = "Admin chór",
+                            UserId = "1",
+                            Voice = 0
+                        });
                 });
 
             modelBuilder.Entity("choir_app.Models.Events", b =>
@@ -294,17 +324,39 @@ namespace choir_app.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2026, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Występ chóru w kościele",
+                            Location = "Kraków",
+                            Title = "Koncert Bożonarodzeniowy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2026, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Przygotowanie do koncertu",
+                            Location = "Sala prób",
+                            Title = "Próba generalna"
+                        });
                 });
 
             modelBuilder.Entity("choir_app.Models.FileResource", b =>
@@ -333,6 +385,16 @@ namespace choir_app.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FileResources");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FileName = "nuty.pdf",
+                            FilePath = "/files/pdf/nuty.pdf",
+                            FileType = "pdf",
+                            UploadedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("choir_app.Models.GalleryImage", b =>
@@ -361,6 +423,16 @@ namespace choir_app.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GalleryImages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2025, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ImageUrl = "/gallery/photo1.jpg",
+                            Title = "Koncert 2025",
+                            UploadedById = "1"
+                        });
                 });
 
             modelBuilder.Entity("choir_app.Models.News", b =>
@@ -385,6 +457,22 @@ namespace choir_app.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("News");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Dodano nowe utwory do ćwiczeń",
+                            CreatedAt = new DateTime(2026, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Nowy repertuar"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Content = "Próby w piątki zamiast środy",
+                            CreatedAt = new DateTime(2026, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Zmiana harmonogramu"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
