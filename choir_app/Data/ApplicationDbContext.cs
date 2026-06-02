@@ -77,6 +77,14 @@ namespace choir_app.Data
 
             adminUser.PasswordHash = hasher.HashPassword(adminUser, "Admin123!");
 
+            builder.Entity<Microsoft.AspNetCore.Identity.IdentityUserRole<string>>().HasData(
+            new Microsoft.AspNetCore.Identity.IdentityUserRole<string>
+            {
+                UserId = "1", 
+                RoleId = "366c0137-4d47-4d2c-8069-b541aa0cbf99" 
+            }
+            );
+
             var memberUser = new ApplicationUser
             {
                 Id = "2",
