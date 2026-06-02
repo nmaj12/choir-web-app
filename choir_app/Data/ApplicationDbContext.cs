@@ -89,7 +89,7 @@ namespace choir_app.Data
                 SecurityStamp = Guid.NewGuid().ToString()
             };
 
-            memberUser.PasswordHash = hasher.HashPassword(memberUser, "User123!");
+            memberUser.PasswordHash = hasher.HashPassword(memberUser, "Chorzysta123!");
 
             builder.Entity<ApplicationUser>().HasData(adminUser);
 
