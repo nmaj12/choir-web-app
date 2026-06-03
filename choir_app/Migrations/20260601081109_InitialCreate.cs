@@ -13,7 +13,7 @@ namespace choir_app.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            /*migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -362,6 +362,7 @@ namespace choir_app.Migrations
                 name: "IX_ChoirMembers_UserId",
                 table: "ChoirMembers",
                 column: "UserId");
+*/
         }
 
         /// <inheritdoc />

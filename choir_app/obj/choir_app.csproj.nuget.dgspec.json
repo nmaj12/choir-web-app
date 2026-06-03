@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\choir_app.csproj": {}
+    "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\choir_app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\choir_app.csproj": {
+    "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\choir_app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\choir_app.csproj",
+        "projectUniqueName": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\choir_app.csproj",
         "projectName": "choir_app",
-        "projectPath": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\choir_app.csproj",
-        "packagesPath": "C:\\Users\\Madzia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\obj\\",
+        "projectPath": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\choir_app.csproj",
+        "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Madzia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,81 +1,81 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\",
+  "WorkspaceRootPath": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\controllers\\choirmemberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\controllers\\choirmemberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:controllers\\choirmemberscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\controllers\\choirdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\controllers\\choirdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:controllers\\choirdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\events\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\events\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\events\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\models\\galleryimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\models\\galleryimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\galleryimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\choir_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\choir_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:choir_app.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\madzia\\desktop\\studia\\4 semestr\\techniki internetowe\\projekt2\\choir-web-app\\choir_app\\models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|c:\\users\\domin\\desktop\\projekt_chor\\choir-web-app\\choir_app\\models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8DF961F7-A631-4D66-B996-5A471C78D868}|choir_app.csproj|solutionrelative:models\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -86,19 +86,23 @@
       "DocumentGroups": [
         {
           "DockedHeight": 183,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Controllers\\AdminController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -108,9 +112,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Events\\Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Events\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\Events\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Events\\Details.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Events\\Details.cshtml",
               "RelativeToolTip": "Views\\Events\\Details.cshtml",
               "ViewState": "AgIAAIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -120,9 +124,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ChoirMembersController.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\ChoirMembersController.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\ChoirMembersController.cs",
               "RelativeDocumentMoniker": "Controllers\\ChoirMembersController.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\ChoirMembersController.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\ChoirMembersController.cs",
               "RelativeToolTip": "Controllers\\ChoirMembersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -132,9 +136,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Home\\About.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Home\\About.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Home\\About.cshtml",
               "RelativeToolTip": "Views\\Home\\About.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -144,9 +148,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAJsAAAAAAAAAAAAIwLsAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -156,9 +160,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Program.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAADsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -168,11 +172,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAgwEIAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAwwEIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-01T16:03:11.168Z",
               "EditorCaption": ""
@@ -181,9 +185,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAKUAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -193,9 +197,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "ChoirDashboardController.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\ChoirDashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\ChoirDashboardController.cs",
               "RelativeDocumentMoniker": "Controllers\\ChoirDashboardController.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\ChoirDashboardController.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\ChoirDashboardController.cs",
               "RelativeToolTip": "Controllers\\ChoirDashboardController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAADwvx0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -205,9 +209,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Account\\Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAEoAAAAAAAAAAAAowF8AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -217,9 +221,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Home\\Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Home\\Contact.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Home\\Contact.cshtml",
               "RelativeToolTip": "Views\\Home\\Contact.cshtml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAD8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -229,9 +233,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\News\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\News\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\News\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\News\\Index.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\News\\Index.cshtml",
               "RelativeToolTip": "Views\\News\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -241,9 +245,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Data\\ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAYwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -253,9 +257,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Account\\Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Views\\Account\\Register.cshtml",
               "RelativeToolTip": "Views\\Account\\Register.cshtml",
               "ViewState": "AgIAAGsAAAAAAAAAAAAUwIcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -265,9 +269,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "GalleryImage.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
               "RelativeDocumentMoniker": "Models\\GalleryImage.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Models\\GalleryImage.cs",
               "RelativeToolTip": "Models\\GalleryImage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -277,9 +281,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Models\\LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Models\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "Models\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Models\\LoginViewModel.cs",
               "RelativeToolTip": "Models\\LoginViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -289,9 +293,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "choir_app.csproj",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\choir_app.csproj",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\choir_app.csproj",
               "RelativeDocumentMoniker": "choir_app.csproj",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\choir_app.csproj",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\choir_app.csproj",
               "RelativeToolTip": "choir_app.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -301,9 +305,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "NewsController.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\NewsController.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\NewsController.cs",
               "RelativeDocumentMoniker": "Controllers\\NewsController.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Controllers\\NewsController.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Controllers\\NewsController.cs",
               "RelativeToolTip": "Controllers\\NewsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -313,39 +317,13 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "News.cs",
-              "DocumentMoniker": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Models\\News.cs",
+              "DocumentMoniker": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Models\\News.cs",
               "RelativeDocumentMoniker": "Models\\News.cs",
-              "ToolTip": "C:\\Users\\Madzia\\Desktop\\studia\\4 semestr\\Techniki internetowe\\Projekt2\\choir-web-app\\choir_app\\Models\\News.cs",
+              "ToolTip": "C:\\Users\\domin\\Desktop\\projekt_chor\\choir-web-app\\choir_app\\Models\\News.cs",
               "RelativeToolTip": "Models\\News.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-22T19:19:35.79Z"
-            }
-          ]
-        },
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{c30d5156-477b-45da-9eb0-a0a462afde85}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{608f1815-db09-4978-b970-f45a5d5f46c7}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

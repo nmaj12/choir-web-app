@@ -1,0 +1,10 @@
+# Foldery Visual Studio
+.vs/
+bin/
+obj/
+
+# Pliki skompilowane
+*.dll
+*.exe
+*.pdb
+*.user
