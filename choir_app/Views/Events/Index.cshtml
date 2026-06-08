@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <a href="/Events/Details/@evt.Id" class="btn-outline-choir" style="white-space:nowrap;font-size:0.8rem;">
+                                    <a asp-action="Details" asp-controller="Events" asp-route-id="@evt.Id" class="btn-outline-choir" style="white-space:nowrap;">
                                         Szczegóły
                                     </a>
                                 </div>
@@ -124,16 +124,44 @@
                          )'></div>
                 </div>
 
-                <div class="sidebar-card" style="background:var(--clr-espresso);border-color:transparent;">
+                <div class="sidebar-card" style="background:var(--clr-espresso); border-color:transparent;">
                     <h4 style="color:var(--clr-cream);">
-                        <i class="bi bi-bell" style="color:var(--clr-gold)"></i> Powiadomienia
+                        <i class="bi bi-bell" style="color:var(--clr-gold)"></i> Twoje wydarzenia
                     </h4>
-                    <p style="font-size:0.83rem;color:rgba(249,245,238,0.65);margin-bottom:1rem;">
-                        Bądź na bieżąco — zaloguj się, aby śledzić wydarzenia.
-                    </p>
-                    <a href="/Account/Login" class="btn-primary-choir" style="width:100%;justify-content:center;">
-                        <i class="bi bi-box-arrow-in-right"></i> Zaloguj się
-                    </a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        var subs = ViewBag.Subscriptions as List<choir_app.Models.Events>;
+
+                        @if (subs != null && subs.Any())
+                        {
+                            <ul style="list-style:none; padding:0; margin-top:10px;">
+                                @foreach (var sub in subs)
+                                {
+                                    <li style="margin-bottom:0.5rem;">
+                                        <a asp-action="Details" asp-route-id="@sub.Id" style="color:var(--clr-gold); text-decoration:none;">
+                                            <i class="bi bi-chevron-right"></i> @sub.Name
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p style="font-size:0.83rem;color:rgba(249,245,238,0.7); margin-top:10px;">
+                                Nie obserwujesz jeszcze żadnych wydarzeń.
+                            </p>
+                        }
+                    }
+                    else
+                    {
+                        <p style="font-size:0.83rem;color:rgba(249,245,238,0.65);margin-bottom:1rem; margin-top:10px;">
+                            Bądź na bieżąco — zaloguj się, aby śledzić wydarzenia.
+                        </p>
+                        <a href="/Account/Login" class="btn-primary-choir" style="width:100%;justify-content:center;">
+                            <i class="bi bi-box-arrow-in-right"></i> Zaloguj się
+                        </a>
+                    }
                 </div>
             </aside>
         </div>

@@ -14,6 +14,7 @@ namespace choir_app.Data
 
         public DbSet<News> News { get; set; }
         public DbSet<Events> Events { get; set; }
+        public DbSet<UserEventSubscription> UserEventSubscriptions { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<ChoirMember> ChoirMembers { get; set; }
         public DbSet<GalleryImage> GalleryImages { get; set; }

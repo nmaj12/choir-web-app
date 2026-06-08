@@ -22,12 +22,14 @@ namespace choir_app.Controllers
         }
 
         // GET: FaqEntries
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.FaqEntries.ToListAsync());
         }
 
         // GET: FaqEntries/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
