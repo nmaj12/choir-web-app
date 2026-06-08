@@ -54,7 +54,7 @@ namespace choir_app.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Question,Answer")] FaqEntry faqEntry)
+        public async Task<IActionResult> Create([Bind("Id,Question,Answer")] Models.FaqEntry faqEntry)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace choir_app.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Question,Answer")] FaqEntry faqEntry)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Question,Answer")] Models.FaqEntry faqEntry)
         {
             if (id != faqEntry.Id)
             {

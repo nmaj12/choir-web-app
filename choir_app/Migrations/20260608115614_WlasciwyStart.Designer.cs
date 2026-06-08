@@ -12,8 +12,8 @@ using choir_app.Data;
 namespace choir_app.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260608095741_AddFaqTable")]
-    partial class AddFaqTable
+    [Migration("20260608115614_WlasciwyStart")]
+    partial class WlasciwyStart
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,14 @@ namespace choir_app.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "366c0137-4d47-4d2c-8069-b541aa0cbf99",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -137,6 +145,13 @@ namespace choir_app.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "366c0137-4d47-4d2c-8069-b541aa0cbf99"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -230,16 +245,16 @@ namespace choir_app.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "df7b7276-0b31-43c4-981e-48b2a1c9569b",
+                            ConcurrencyStamp = "9c95b6b6-8ac4-47e5-a9e5-dde4edb6d5c2",
                             Email = "admin@choir.pl",
                             EmailConfirmed = true,
                             IsActive = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@CHOIR.PL",
                             NormalizedUserName = "ADMIN@CHOIR.PL",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFACDYQqmqmPYv+5WRclDeF/ZC7wLQRGghfTurl2Wn/QW000NKLks50LRviNo+G6zA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENVzHtYi2mj8YTUImcy/tOXOmu4iCeCBebgzMO596HN0o+hH5ebTTcOd/hDk0//b0w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9688eb9e-0ffd-497f-b4d4-7e0f9dbe6b37",
+                            SecurityStamp = "39466028-8bc1-48ad-b162-93759f63329e",
                             TwoFactorEnabled = false,
                             UserName = "admin@choir.pl"
                         },
@@ -247,16 +262,16 @@ namespace choir_app.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a3db9a30-85a3-4307-ac75-da54a103d619",
+                            ConcurrencyStamp = "b0e8d7f8-0725-4f7f-82a0-90d840542c31",
                             Email = "jan.kowalski@choir.pl",
                             EmailConfirmed = true,
                             IsActive = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JAN.KOWALSKI@CHOIR.PL",
                             NormalizedUserName = "JAN.KOWALSKI@CHOIR.PL",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKyfpkQlT+tnE9vCXoyz4ISZwxka3ZBt+mJPX1llwszlatcGUQdytyRsiu/Cw/Vjmw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPyxMH9M/1edRAKKLnOejujyrJexr9wi74hzwimFwnj8EjELcUXdPU83tTNuR4IFgg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6979d111-b83e-43b2-a25b-e46510b92013",
+                            SecurityStamp = "523df951-88f3-4906-845b-3861e84f8e03",
                             TwoFactorEnabled = false,
                             UserName = "jan.kowalski@choir.pl"
                         });
@@ -382,7 +397,7 @@ namespace choir_app.Migrations
                         });
                 });
 
-            modelBuilder.Entity("choir_app.Models.FaqEntry", b =>
+            modelBuilder.Entity("choir_app.Models.FaqEntries", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

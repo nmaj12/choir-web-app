@@ -19,10 +19,21 @@ namespace choir_app.Data
         public DbSet<GalleryImage> GalleryImages { get; set; }
         public DbSet<FileResource> FileResources { get; set; }
 
+        public DbSet<FaqEntries> FaqEntries { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
             base.OnModelCreating(builder);
+
+            // Tworzenie roli Admina
+            builder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = "366c0137-4d47-4d2c-8069-b541aa0cbf99", 
+                Name = "Admin",
+                NormalizedName = "ADMIN"
+            });
 
             // EVENTS SEED
             builder.Entity<Events>().HasData(

@@ -47,6 +47,14 @@ namespace choir_app.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "366c0137-4d47-4d2c-8069-b541aa0cbf99",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -134,6 +142,13 @@ namespace choir_app.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "366c0137-4d47-4d2c-8069-b541aa0cbf99"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -227,16 +242,16 @@ namespace choir_app.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e0b9c0bd-4a82-41ef-8b53-7e34f0ae1a8c",
+                            ConcurrencyStamp = "9c95b6b6-8ac4-47e5-a9e5-dde4edb6d5c2",
                             Email = "admin@choir.pl",
                             EmailConfirmed = true,
                             IsActive = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@CHOIR.PL",
                             NormalizedUserName = "ADMIN@CHOIR.PL",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBHgy0VJAu6BpV1E3iXuSRnyrkQgWYHGItrw77vBDPzlqHcNV5vewJt9rx/vwrRszw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENVzHtYi2mj8YTUImcy/tOXOmu4iCeCBebgzMO596HN0o+hH5ebTTcOd/hDk0//b0w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "88dbcc42-ada8-4845-bcca-2d4f751dba51",
+                            SecurityStamp = "39466028-8bc1-48ad-b162-93759f63329e",
                             TwoFactorEnabled = false,
                             UserName = "admin@choir.pl"
                         },
@@ -244,16 +259,16 @@ namespace choir_app.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cf15de15-c1d9-4d52-9860-80426cf0c669",
+                            ConcurrencyStamp = "b0e8d7f8-0725-4f7f-82a0-90d840542c31",
                             Email = "jan.kowalski@choir.pl",
                             EmailConfirmed = true,
                             IsActive = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JAN.KOWALSKI@CHOIR.PL",
                             NormalizedUserName = "JAN.KOWALSKI@CHOIR.PL",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEd7Qaj2ww96V1qprIp2S30OqMyePwvU6/9XT5MBnZRHNCRhwmTBkYWYPJsmidf1CA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPyxMH9M/1edRAKKLnOejujyrJexr9wi74hzwimFwnj8EjELcUXdPU83tTNuR4IFgg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "507c0aac-5606-4f79-a901-69decea20275",
+                            SecurityStamp = "523df951-88f3-4906-845b-3861e84f8e03",
                             TwoFactorEnabled = false,
                             UserName = "jan.kowalski@choir.pl"
                         });
@@ -377,6 +392,27 @@ namespace choir_app.Migrations
                             Location = "Sala prób",
                             Name = "Próba generalna"
                         });
+                });
+
+            modelBuilder.Entity("choir_app.Models.FaqEntries", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Answer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Question")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FaqEntries");
                 });
 
             modelBuilder.Entity("choir_app.Models.FileResource", b =>

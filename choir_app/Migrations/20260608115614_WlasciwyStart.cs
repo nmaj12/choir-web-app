@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace choir_app.Migrations
 {
     /// <inheritdoc />
-    public partial class OstatecznyStart : Migration
+    public partial class WlasciwyStart : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -66,6 +66,20 @@ namespace choir_app.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Events", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FaqEntries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Question = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Answer = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FaqEntries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -272,12 +286,17 @@ namespace choir_app.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "366c0137-4d47-4d2c-8069-b541aa0cbf99", null, "Admin", "ADMIN" });
+
+            migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "IsActive", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "3f03f4a5-91eb-4279-8ab0-0f109d1f0d7d", "admin@choir.pl", true, true, false, null, "ADMIN@CHOIR.PL", "ADMIN@CHOIR.PL", "AQAAAAIAAYagAAAAEDPaznTRG0ERA420IyDYd7m1SjFMsGl+bsp6dJ1tCu4N98jzSA8nvI8Lx7OrtyGD3A==", null, false, "9a851a1b-6f5c-4d69-8c70-7a73a12043f5", false, "admin@choir.pl" },
-                    { "2", 0, "f498763c-b0aa-4f48-a59e-9e1d84a42d3f", "jan.kowalski@choir.pl", true, true, false, null, "JAN.KOWALSKI@CHOIR.PL", "JAN.KOWALSKI@CHOIR.PL", "AQAAAAIAAYagAAAAEGpUoZbyH/JwfIivYXbdOlDK+ZbnyW/Q3PbH0jqlEXaUiSIFIm8heP5pa+MLLxxmNg==", null, false, "33075b37-4129-4fb3-9090-395cb6b7f14e", false, "jan.kowalski@choir.pl" }
+                    { "1", 0, "9c95b6b6-8ac4-47e5-a9e5-dde4edb6d5c2", "admin@choir.pl", true, true, false, null, "ADMIN@CHOIR.PL", "ADMIN@CHOIR.PL", "AQAAAAIAAYagAAAAENVzHtYi2mj8YTUImcy/tOXOmu4iCeCBebgzMO596HN0o+hH5ebTTcOd/hDk0//b0w==", null, false, "39466028-8bc1-48ad-b162-93759f63329e", false, "admin@choir.pl" },
+                    { "2", 0, "b0e8d7f8-0725-4f7f-82a0-90d840542c31", "jan.kowalski@choir.pl", true, true, false, null, "JAN.KOWALSKI@CHOIR.PL", "JAN.KOWALSKI@CHOIR.PL", "AQAAAAIAAYagAAAAEPyxMH9M/1edRAKKLnOejujyrJexr9wi74hzwimFwnj8EjELcUXdPU83tTNuR4IFgg==", null, false, "523df951-88f3-4906-845b-3861e84f8e03", false, "jan.kowalski@choir.pl" }
                 });
 
             migrationBuilder.InsertData(
@@ -307,6 +326,11 @@ namespace choir_app.Migrations
                     { 1, "Dodano nowe utwory do ćwiczeń", new DateTime(2026, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nowy repertuar" },
                     { 2, "Próby w piątki zamiast środy", new DateTime(2026, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Zmiana harmonogramu" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "366c0137-4d47-4d2c-8069-b541aa0cbf99", "1" });
 
             migrationBuilder.InsertData(
                 table: "ChoirMembers",
@@ -395,6 +419,9 @@ namespace choir_app.Migrations
 
             migrationBuilder.DropTable(
                 name: "ChoirMembers");
+
+            migrationBuilder.DropTable(
+                name: "FaqEntries");
 
             migrationBuilder.DropTable(
                 name: "FileResources");
