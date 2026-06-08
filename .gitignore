@@ -1,0 +1,7 @@
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
+
+/choir_app/.vs/choir_app
+/choir_app/Data
+/choir_app/Models
