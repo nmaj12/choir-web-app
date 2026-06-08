@@ -30,19 +30,6 @@ namespace choir_app
 
             var app = builder.Build();
 
-            //ROLE
-            using (var scope = app.Services.CreateScope())
-            {
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-                string[] roles = { "Admin", "Dyrygent", "Chorzysta" };
-
-                foreach (var role in roles)
-                {
-                    if (!await roleManager.RoleExistsAsync(role))
-                        await roleManager.CreateAsync(new IdentityRole(role));
-                }
-            }
 
             // ERROR HANDLING
             if (!app.Environment.IsDevelopment())

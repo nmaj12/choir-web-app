@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace choir_app.Controllers
 {
-    [Authorize(Roles = "Chorzysta,Admin,Dyrygent")]
+    [Authorize(Roles = "Chorzysta,Admin,Dyrygent,CHORZYSTA,ADMIN,DYRYGENT")]
     public class ChoirDashboardController : Controller
     {
         private readonly ApplicationDbContext _context;
