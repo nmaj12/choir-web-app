@@ -19,7 +19,7 @@ namespace choir_app.Data
         public DbSet<GalleryImage> GalleryImages { get; set; }
         public DbSet<FileResource> FileResources { get; set; }
 
-        public DbSet<FaqEntries> FaqEntries { get; set; }
+        public DbSet<FaqEntry> FaqEntries { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
