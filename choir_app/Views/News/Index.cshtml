@@ -1,0 +1,31 @@
+﻿@model List<choir_app.Models.News>
+
+<h1>Aktualności</h1>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+{
+    <a href="/News/Create">Dodaj news</a>
+}
+
+@foreach (var n in Model)
+{
+    <div style="margin-bottom: 15px;">
+        <h3>@n.Title</h3>
+        <p>@n.Content</p>
+        <small>@n.CreatedAt</small>
+
+        @if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+        {
+            <div>
+                <a href="/News/Edit/@n.Id">Edytuj</a>
+            </div>
+        }
+
+        @if (User.IsInRole("Admin") || User.IsInRole("Dyrygent"))
+        {
+            <div>
+                <a href="/News/Delete/@n.Id">Usuń</a>
+            </div>
+        }
+    </div>
+}

@@ -1,8 +1,186 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model choir_app.Models.ChoirDashboard
+@{
+    ViewData["Title"] = "Strona główna";
+    ViewData["ActivePage"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!-- HERO -->
+<section class="hero" aria-label="Sekcja główna">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <p class="hero-overline anim-fade-up">Muzyka łączy światy</p>
+            <h1 class="hero-title anim-fade-up anim-delay-1">
+                Brzmimy <em>razem</em>,<br>śpiewamy <em>piękno</em>
+            </h1>
+            <p class="hero-desc anim-fade-up anim-delay-2">
+                Chór Akademicki to wspólnota pasjonatów muzyki chóralnej. Łączymy głosy w harmonii,
+                tworząc niezapomniane przeżycia dla naszej publiczności.
+            </p>
+            <div class="hero-actions anim-fade-up anim-delay-3">
+                <a href="/Events" class="btn-hero-primary">
+                    <i class="bi bi-calendar-event"></i> Nadchodzące koncerty
+                </a>
+                <a href="/Home/About" class="btn-hero-outline">
+                    <i class="bi bi-play-circle"></i> Poznaj nas
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="hero-stats anim-fade-up anim-delay-4">
+        <div class="hero-stat"><span class="hero-stat-num">30+</span><span class="hero-stat-label">Lat tradycji</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">60</span><span class="hero-stat-label">Chórzystów</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">120+</span><span class="hero-stat-label">Koncertów</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">15</span><span class="hero-stat-label">Krajów</span></div>
+    </div>
+</section>
+
+<!-- O NAS -->
+<section class="section-intro">
+    <div class="container">
+        <div class="intro-grid">
+            <div class="intro-img-wrap reveal">
+                <div style="width:100%; aspect-ratio:4/5; border-radius:12px; overflow:hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.15);">
+                    <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=800" alt="Chór Akademicki" style="width:100%; height:100%; object-fit:cover;" />
+                </div>
+                <div class="intro-img-badge">
+                    <span class="badge-num">1993</span>
+                    <span class="badge-text">Rok założenia</span>
+                </div>
+            </div>
+            <div class="intro-text reveal">
+                <div class="section-heading">
+                    <span class="overline">Kim jesteśmy</span>
+                    <h2>Pasja do muzyki<br>przez pokolenia</h2>
+                    <p>Od ponad trzech dekad Chór Akademicki tworzy wyjątkową przestrzeń dla miłośników muzyki chóralnej. Nasz repertuar obejmuje dzieła od renesansu po współczesność.</p>
+                </div>
+                <div class="intro-features">
+                    <div class="intro-feature">
+                        <div class="feat-icon"><i class="bi bi-music-note-list"></i></div>
+                        <h5>Bogaty repertuar</h5>
+                        <p>Muzyka klasyczna, sakralna i współczesna.</p>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="feat-icon"><i class="bi bi-globe2"></i></div>
+                        <h5>Tournée zagraniczne</h5>
+                        <p>Reprezentujemy Polskę na scenach Europy.</p>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="feat-icon"><i class="bi bi-award"></i></div>
+                        <h5>Nagrody</h5>
+                        <p>Wielokrotni laureaci konkursów chóralnych.</p>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="feat-icon"><i class="bi bi-people"></i></div>
+                        <h5>Wspólnota</h5>
+                        <p>Więcej niż chór — rodzina muzyki.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NAJBLIŻSZE WYDARZENIA (model: List<Events>) -->
+<section class="section-events-preview">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="overline">Kalendarz</span>
+            <h2>Nadchodzące wydarzenia</h2>
+        </div>
+
+        @if (Model?.Events != null && Model.Events.Any())
+        {
+            <div class="events-grid">
+                @foreach (var evt in Model.Events.Where(e => e.Date >= DateTime.Today).OrderBy(e => e.Date).Take(3))
+                {
+                    <article class="event-card reveal">
+                        <div class="event-card-img" style="height:160px; overflow:hidden;">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=600" alt="Koncert" style="width:100%; height:100%; object-fit:cover;" />
+                        </div>
+                        <div class="event-card-body">
+                            <div class="event-date">
+                                <i class="bi bi-calendar3"></i>
+                                @evt.Date.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("pl-PL"))
+                            </div>
+                            <h3>@evt.Name</h3>
+                            <div class="event-card-meta">
+                                <span><i class="bi bi-geo-alt" style="color:var(--clr-gold)"></i> @evt.Location</span>
+                            </div>
+                        </div>
+                    </article>
+                }
+            </div>
+        }
+        else
+        {
+            <p style="color:var(--clr-light-slate);text-align:center;padding:2rem 0;">
+                Brak nadchodzących wydarzeń.
+            </p>
+        }
+
+        <div class="text-center" style="margin-top:2rem;">
+            <a href="/Events" class="btn-outline-choir">
+                Wszystkie wydarzenia <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- AKTUALNOŚCI (model: List<News>) -->
+<section class="section-gallery-preview">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="overline">Aktualności</span>
+            <h2>Co u nas słychać</h2>
+        </div>
+
+        @if (Model?.News != null && Model.News.Any())
+        {
+            <div class="events-grid">
+                @foreach (var news in Model.News.OrderByDescending(n => n.CreatedAt).Take(3))
+                {
+                    <article class="event-card reveal">
+                        <div class="event-card-body" style="padding:1.5rem;">
+                            <div class="event-date">
+                                <i class="bi bi-newspaper"></i>
+                                @news.CreatedAt.ToString("d MMMM yyyy", new System.Globalization.CultureInfo("pl-PL"))
+                            </div>
+                            <h3>@news.Title</h3>
+                            <p>@(news.Content.Length > 120 ? news.Content.Substring(0, 120) + "…" : news.Content)</p>
+                            <a href="/News/Details/@news.Id" style="font-size:0.82rem;color:var(--clr-gold);">
+                                Czytaj więcej <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                }
+            </div>
+        }
+        else
+        {
+            <p style="color:var(--clr-light-slate);text-align:center;padding:2rem 0;">Brak aktualności.</p>
+        }
+
+        <div class="text-center" style="margin-top:2rem;">
+            <a href="/News" class="btn-outline-choir">
+                Wszystkie aktualności <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--clr-espresso);padding:5rem 0;text-align:center;">
+    <div class="container reveal">
+        <h2 style="color:var(--clr-cream);margin-bottom:1rem;">Masz głos? Dołącz do nas!</h2>
+        <p style="color:rgba(249,245,238,0.65);max-width:520px;margin:0 auto 2rem;">
+            Szukamy nowych chórzystów ze wszystkich głosów. Przesłuchania odbywają się co roku we wrześniu.
+        </p>
+        <a href="/Account/Register"
+           style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--clr-gold);color:var(--clr-ink);padding:0.9rem 2.2rem;border-radius:6px;font-weight:500;">
+            <i class="bi bi-person-plus"></i> Zarejestruj się
+        </a>
+    </div>
+</section>

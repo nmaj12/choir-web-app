@@ -1,0 +1,90 @@
+﻿@model IEnumerable<choir_app.Models.GalleryImage>
+@{
+    ViewData["Title"] = "Galeria";
+    ViewData["ActivePage"] = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-hero-mini">
+    <div class="container">
+        <h1 class="anim-fade-up">Galeria zdjęć</h1>
+        <p class="anim-fade-up anim-delay-1">Wspomnienia z naszych koncertów i podróży muzycznych</p>
+    </div>
+</div>
+
+<section class="gallery-page">
+    <div class="container">
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="form-success-msg">
+                <i class="bi bi-check-circle"></i> @TempData["Success"]
+            </div>
+        }
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div style="display:flex;justify-content:flex-end;margin-bottom:1.5rem;">
+                <a href="/Gallery/Create" class="btn-primary-choir">
+                    <i class="bi bi-plus-lg"></i> Dodaj zdjęcie
+                </a>
+            </div>
+        }
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="gallery-masonry" id="galleryMasonry">
+                @foreach (var photo in Model)
+                {
+                    <div class="masonry-item reveal" data-lightbox>
+                        <img src="@photo.ImageUrl"
+                             data-full="@photo.ImageUrl"
+                             alt="@photo.Title"
+                             data-caption="@photo.Title"
+                             loading="lazy" />
+                        <div class="gallery-item-overlay">
+                            <i class="bi bi-zoom-in" aria-hidden="true"></i>
+                        </div>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div style="position:absolute;top:0.5rem;right:0.5rem;z-index:2;">
+                                <form asp-action="Delete" asp-controller="Gallery"
+                                      asp-route-id="@photo.Id" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit"
+                                            data-confirm="Czy na pewno chcesz usunąć to zdjęcie?"
+                                            style="background:rgba(155,35,53,0.85);border:none;color:#fff;border-radius:6px;padding:0.3rem 0.6rem;cursor:pointer;font-size:0.8rem;">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div style="text-align:center;padding:5rem 0;color:var(--clr-light-slate);">
+                <i class="bi bi-images" style="font-size:4rem;display:block;margin-bottom:1rem;color:var(--clr-warm-tan);"></i>
+                <h3 style="font-family:var(--font-display);color:var(--clr-espresso);">Galeria jest pusta</h3>
+                <p>Zdjęcia pojawią się tutaj po ich dodaniu.</p>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="/Gallery/Create" class="btn-primary-choir" style="margin-top:1.5rem;display:inline-flex;">
+                        <i class="bi bi-plus-lg"></i> Dodaj pierwsze zdjęcie
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Podgląd zdjęcia" tabindex="-1">
+    <button class="lightbox-close" aria-label="Zamknij"><i class="bi bi-x-lg"></i></button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Poprzednie"><i class="bi bi-chevron-left"></i></button>
+    <img class="lightbox-img" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" aria-label="Następne"><i class="bi bi-chevron-right"></i></button>
+    <p class="lightbox-caption"></p>
+</div>

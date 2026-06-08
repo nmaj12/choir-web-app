@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Kontakt";
+    ViewData["ActivePage"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-hero-mini">
+    <div class="container">
+        <h1 class="anim-fade-up">Kontakt</h1>
+        <p class="anim-fade-up anim-delay-1">Skontaktuj się z nami</p>
+    </div>
+</div>
+
+<section style="padding:4rem 0;">
+    <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+
+            <div class="dash-card reveal">
+                <h3 style="font-family:var(--font-display);margin-bottom:1.5rem;">Napisz do nas</h3>
+                <form data-validate>
+                    <div class="form-group">
+                        <label class="form-label">Imię i nazwisko <span class="required">*</span></label>
+                        <input type="text" name="Name" class="form-control-choir"
+                               placeholder="Jan Kowalski" required />
+                        <div class="form-error" id="Name-error" style="display:none;">
+                            <i class="bi bi-exclamation-circle"></i><span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">E-mail <span class="required">*</span></label>
+                        <input type="email" name="Email" class="form-control-choir"
+                               placeholder="twoj@email.pl" required />
+                        <div class="form-error" id="Email-error" style="display:none;">
+                            <i class="bi bi-exclamation-circle"></i><span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Temat</label>
+                        <input type="text" name="Subject" class="form-control-choir"
+                               placeholder="Temat wiadomości" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Wiadomość <span class="required">*</span></label>
+                        <textarea name="Message" class="form-control-choir" rows="5"
+                                  placeholder="Twoja wiadomość..." required
+                                  style="resize:vertical;"></textarea>
+                        <div class="form-error" id="Message-error" style="display:none;">
+                            <i class="bi bi-exclamation-circle"></i><span></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary-choir">
+                        <i class="bi bi-send"></i> Wyślij wiadomość
+                    </button>
+                </form>
+            </div>
+
+            <div class="reveal">
+                <div class="sidebar-card" style="margin-bottom:1.5rem;">
+                    <h4><i class="bi bi-geo-alt" style="color:var(--clr-gold)"></i> Adres</h4>
+                    <p style="margin-top:0.75rem;">ul. Muzyczna 1<br>00-001 Warszawa</p>
+                </div>
+                <div class="sidebar-card" style="margin-bottom:1.5rem;">
+                    <h4><i class="bi bi-envelope" style="color:var(--clr-gold)"></i> E-mail</h4>
+                    <p style="margin-top:0.75rem;">
+                        <a href="mailto:choir@example.com" style="color:var(--clr-gold);">choir@example.com</a>
+                    </p>
+                </div>
+                <div class="sidebar-card">
+                    <h4><i class="bi bi-clock" style="color:var(--clr-gold)"></i> Próby</h4>
+                    <p style="margin-top:0.75rem;">Środa i piątek, 18:00–20:30<br>Sala prób, budynek główny</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        @@media (max-width: 768px) {
+            section > .container > div {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+}

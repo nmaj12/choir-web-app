@@ -1,0 +1,141 @@
+﻿@model IEnumerable<choir_app.Models.Events>
+@{
+    ViewData["Title"] = "Wydarzenia";
+    ViewData["ActivePage"] = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-hero-mini">
+    <div class="container">
+        <h1 class="anim-fade-up">Wydarzenia</h1>
+        <p class="anim-fade-up anim-delay-1">Nadchodzące koncerty i uroczystości</p>
+    </div>
+</div>
+
+<section class="events-page">
+    <div class="container">
+
+        <ul class="nav nav-tabs mb-4" id="eventsTabs" role="tablist"
+            style="border-bottom:2px solid var(--clr-parchment);">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#upcoming" type="button"
+                        style="font-family:var(--font-body);color:var(--clr-espresso);">
+                    Nadchodzące
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#archive" type="button"
+                        style="font-family:var(--font-body);color:var(--clr-espresso);">
+                    Archiwum
+                </button>
+            </li>
+        </ul>
+
+        <div class="events-layout">
+            <div class="tab-content">
+
+                <!-- Nadchodzące -->
+                <div class="tab-pane fade show active" id="upcoming">
+                    @{
+                        var upcoming = Model?.Where(e => e.Date >= DateTime.Today).OrderBy(e => e.Date).ToList();
+                    }
+                    @if (upcoming != null && upcoming.Any())
+                    {
+                        @foreach (var evt in upcoming)
+                        {
+                            <article class="event-list-item reveal">
+                                <div class="event-date-box">
+                                    <span class="day">@evt.Date.Day</span>
+                                    <span class="month">@evt.Date.ToString("MMM", new System.Globalization.CultureInfo("pl-PL"))</span>
+                                </div>
+                                <div class="event-list-info">
+                                    <h3>@evt.Name</h3>
+                                    <div class="event-meta-row">
+                                        <span><i class="bi bi-clock"></i> @evt.Date.ToString("HH:mm")</span>
+                                        <span><i class="bi bi-geo-alt"></i> @evt.Location</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="/Events/Details/@evt.Id" class="btn-outline-choir" style="white-space:nowrap;">
+                                        Szczegóły
+                                    </a>
+                                </div>
+                            </article>
+                        }
+                    }
+                    else
+                    {
+                        <div style="text-align:center;padding:4rem 0;color:var(--clr-light-slate);">
+                            <i class="bi bi-calendar-x" style="font-size:3rem;display:block;margin-bottom:1rem;"></i>
+                            <p>Brak nadchodzących wydarzeń.</p>
+                        </div>
+                    }
+                </div>
+
+                <!-- Archiwum -->
+                <div class="tab-pane fade" id="archive">
+                    @{
+                        var past = Model?.Where(e => e.Date < DateTime.Today).OrderByDescending(e => e.Date).ToList();
+                    }
+                    @if (past != null && past.Any())
+                    {
+                        @foreach (var evt in past)
+                        {
+                            <article class="event-list-item reveal" style="opacity:0.7;">
+                                <div class="event-date-box" style="background:var(--clr-slate);">
+                                    <span class="day">@evt.Date.Day</span>
+                                    <span class="month">@evt.Date.ToString("MMM", new System.Globalization.CultureInfo("pl-PL"))</span>
+                                </div>
+                                <div class="event-list-info">
+                                    <h3>@evt.Name</h3>
+                                    <div class="event-meta-row">
+                                        <span><i class="bi bi-geo-alt"></i> @evt.Location</span>
+                                        <span><i class="bi bi-check-circle" style="color:var(--clr-success)"></i> Zakończone</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="/Events/Details/@evt.Id" class="btn-outline-choir" style="white-space:nowrap;font-size:0.8rem;">
+                                        Szczegóły
+                                    </a>
+                                </div>
+                            </article>
+                        }
+                    }
+                    else
+                    {
+                        <div style="text-align:center;padding:4rem 0;color:var(--clr-light-slate);">
+                            <i class="bi bi-archive" style="font-size:3rem;display:block;margin-bottom:1rem;"></i>
+                            <p>Brak archiwalnych wydarzeń.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="events-sidebar">
+                <div class="sidebar-card">
+                    <h4><i class="bi bi-calendar3" style="color:var(--clr-gold)"></i> Kalendarz</h4>
+                    <div id="miniCalendar"
+                         data-events='@Html.Raw(
+                             System.Text.Json.JsonSerializer.Serialize(
+                        Model?.Select(e => e.Date.ToString("yyyy-MM-dd")).Distinct().ToList()
+                        ?? new List<string>()
+                             )
+                         )'></div>
+                </div>
+
+                <div class="sidebar-card" style="background:var(--clr-espresso);border-color:transparent;">
+                    <h4 style="color:var(--clr-cream);">
+                        <i class="bi bi-bell" style="color:var(--clr-gold)"></i> Powiadomienia
+                    </h4>
+                    <p style="font-size:0.83rem;color:rgba(249,245,238,0.65);margin-bottom:1rem;">
+                        Bądź na bieżąco — zaloguj się, aby śledzić wydarzenia.
+                    </p>
+                    <a href="/Account/Login" class="btn-primary-choir" style="width:100%;justify-content:center;">
+                        <i class="bi bi-box-arrow-in-right"></i> Zaloguj się
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>

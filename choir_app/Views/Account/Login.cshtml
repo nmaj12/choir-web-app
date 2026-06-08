@@ -1,0 +1,113 @@
+﻿@model choir_app.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Logowanie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <div class="login-logo">
+            <div style="width:56px;height:56px;background:var(--clr-espresso);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+                <i class="bi bi-music-note-beamed" style="font-size:1.6rem;color:var(--clr-gold);"></i>
+            </div>
+            <h2>Panel chórzysty</h2>
+            <p>Zaloguj się, aby uzyskać dostęp</p>
+        </div>
+
+        @if (TempData["Error"] != null)
+        {
+            <div style="background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;border-radius:8px;padding:0.75rem 1rem;font-size:0.875rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;">
+                <i class="bi bi-exclamation-circle"></i> @TempData["Error"]
+            </div>
+        }
+
+        <div asp-validation-summary="ModelOnly"
+             style="background:#FEE2E2;color:#991B1B;border:1px solid #FECACA;border-radius:8px;padding:0.75rem 1rem;font-size:0.875rem;margin-bottom:1.25rem;"></div>
+
+        <form asp-action="Login" asp-controller="Account" method="post">
+            @Html.AntiForgeryToken()
+            <input asp-for="ReturnUrl" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label">
+                    E-mail <span class="required">*</span>
+                </label>
+                <input asp-for="Email"
+                       class="form-control-choir"
+                       placeholder="twoj@email.pl"
+                       autocomplete="email"
+                       name="email" />
+                <span asp-validation-for="Email" class="form-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="form-label">
+                    Hasło <span class="required">*</span>
+                </label>
+                <div style="position:relative;">
+                    <input asp-for="Password"
+                           id="passwordInput"
+                           class="form-control-choir"
+                           placeholder="••••••••"
+                           autocomplete="current-password"
+                           style="padding-right:2.8rem;"
+                           name="password" />
+                    <button type="button" id="togglePassword"
+                            style="position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--clr-light-slate);font-size:1rem;"
+                            aria-label="Pokaż hasło">
+                        <i class="bi bi-eye" id="toggleIcon"></i>
+                    </button>
+                </div>
+                <span asp-validation-for="Password" class="form-error"></span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+                <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;cursor:pointer;">
+                    <input asp-for="RememberMe" style="accent-color:var(--clr-gold);width:16px;height:16px;" />
+                    Zapamiętaj mnie
+                </label>
+                <a href="/Account/ForgotPassword" style="font-size:0.82rem;color:var(--clr-gold);">
+                    Zapomniałem hasła
+                </a>
+            </div>
+
+            <button type="submit" class="btn-primary-choir"
+                    style="width:100%;justify-content:center;padding:0.85rem;">
+                <i class="bi bi-box-arrow-in-right"></i> Zaloguj się
+            </button>
+        </form>
+
+        <p style="text-align:center;margin-top:1.25rem;font-size:0.85rem;color:var(--clr-light-slate);">
+            Nie masz jeszcze konta?
+            <a href="/Account/Register" style="color:var(--clr-gold);font-weight:500;">Zarejestruj się</a>
+        </p>
+
+        <p style="text-align:center;margin-top:0.5rem;font-size:0.82rem;color:var(--clr-light-slate);">
+            <a href="/" style="color:var(--clr-gold);">
+                <i class="bi bi-arrow-left"></i> Wróć do strony głównej
+            </a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.getElementById('togglePassword')?.addEventListener('click', function () {
+          var i = document.getElementById('passwordInput');
+          var ic = document.getElementById('toggleIcon');
+          if (i.type === 'password') {
+            i.type = 'text';
+            ic.className = 'bi bi-eye-slash';
+            this.setAttribute('aria-label', 'Ukryj hasło');
+          } else {
+            i.type = 'password';
+            ic.className = 'bi bi-eye';
+            this.setAttribute('aria-label', 'Pokaż hasło');
+          }
+        });
+    </script>
+}

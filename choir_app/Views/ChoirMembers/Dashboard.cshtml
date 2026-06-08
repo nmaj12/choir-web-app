@@ -1,0 +1,187 @@
+﻿@model choir_app.Models.ChoirDashboard
+@{
+    ViewData["Title"] = "Panel chórzysty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+        <div class="dash-sidebar-header">
+            <div class="dash-user-avatar">
+                @(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "C")
+            </div>
+            <div class="dash-user-name">@User.Identity?.Name</div>
+            <div class="dash-user-role">
+                @(Model?.MyMember != null ? Model.MyMember.Voice.ToString() : "Chórzysta")
+            </div>
+        </div>
+        <nav>
+            <div class="dash-nav-section">
+                <div class="dash-nav-section-label">Główne</div>
+                <a href="/Member/Dashboard" class="dash-nav-item active">
+                    <i class="bi bi-speedometer2"></i> Dashboard
+                </a>
+                <a href="/News" class="dash-nav-item">
+                    <i class="bi bi-megaphone"></i> Aktualności
+                </a>
+                <a href="/Attendance" class="dash-nav-item">
+                    <i class="bi bi-check2-square"></i> Obecności
+                </a>
+                <a href="/Events" class="dash-nav-item">
+                    <i class="bi bi-calendar-week"></i> Kalendarz
+                </a>
+            </div>
+            <div class="dash-nav-section">
+                <div class="dash-nav-section-label">Materiały</div>
+                <a href="/Files" class="dash-nav-item">
+                    <i class="bi bi-file-earmark-music"></i> Pliki i nuty
+                </a>
+            </div>
+            <div class="dash-nav-section">
+                <div class="dash-nav-section-label">Konto</div>
+                <a href="/Account/Manage" class="dash-nav-item">
+                    <i class="bi bi-person"></i> Mój profil
+                </a>
+                <form asp-action="Logout" asp-controller="Account" method="post" style="display:contents;">
+                    <button type="submit" class="dash-nav-item" style="background:none;border:none;width:100%;text-align:left;cursor:pointer;color:rgba(249,245,238,0.7);">
+                        <i class="bi bi-box-arrow-right"></i> Wyloguj
+                    </button>
+                </form>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="dashboard-main">
+        <div class="dashboard-greeting">
+            <h1>Witaj, @User.Identity?.Name! 👋</h1>
+            <p>@DateTime.Now.ToString("dddd, d MMMM yyyy", new System.Globalization.CultureInfo("pl-PL"))</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon gold"><i class="bi bi-calendar-check"></i></div>
+                <div class="stat-num">
+                    @(Model?.Events?.Count(e => e.Date >= DateTime.Today) ?? 0)
+                </div>
+                <div class="stat-label">Nadchodzące wydarzenia</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green"><i class="bi bi-check2-all"></i></div>
+                <div class="stat-num">
+                    @(Model?.MyAttendance?.Count(a => a.Status == "present") ?? 0)
+                </div>
+                <div class="stat-label">Potwierdzone obecności</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon blue"><i class="bi bi-newspaper"></i></div>
+                <div class="stat-num">@(Model?.News?.Count ?? 0)</div>
+                <div class="stat-label">Aktualności</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon rose"><i class="bi bi-file-earmark-music"></i></div>
+                <div class="stat-num">@(Model?.Files?.Count ?? 0)</div>
+                <div class="stat-label">Dostępnych plików</div>
+            </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="dashboard-grid">
+            <!-- Lewa kolumna: Nadchodzące wydarzenia -->
+            <div class="dash-card">
+                <div class="dash-card-header">
+                    <h3>Nadchodzące wydarzenia</h3>
+                    <a href="/Events">Wszystkie →</a>
+                </div>
+                @if (Model?.Events != null && Model.Events.Any(e => e.Date >= DateTime.Today))
+                {
+                    @foreach (var evt in Model.Events.Where(e => e.Date >= DateTime.Today).OrderBy(e => e.Date).Take(5))
+                    {
+                        <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--clr-parchment);">
+                            <div style="background:var(--clr-espresso);color:var(--clr-cream);border-radius:8px;padding:0.5rem 0.6rem;text-align:center;min-width:48px;">
+                                <div style="font-family:var(--font-display);font-size:1.3rem;line-height:1;">@evt.Date.Day</div>
+                                <div style="font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-warm-tan);">
+                                    @evt.Date.ToString("MMM", new System.Globalization.CultureInfo("pl-PL"))
+                                </div>
+                            </div>
+                            <div>
+                                <div style="font-family:var(--font-display);font-size:1rem;">@evt.Name</div>
+                                <div style="font-size:0.78rem;color:var(--clr-light-slate);">
+                                    <i class="bi bi-clock"></i> @evt.Date.ToString("HH:mm")
+                                    &nbsp;<i class="bi bi-geo-alt"></i> @evt.Location
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p style="color:var(--clr-light-slate);font-size:0.875rem;padding:1rem 0;">
+                        Brak nadchodzących wydarzeń.
+                    </p>
+                }
+            </div>
+
+            <!-- Prawa kolumna: Aktualności i Pliki -->
+            <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+                <!-- Aktualności (News) -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <h3>Aktualności</h3>
+                        <a href="/News">Wszystkie →</a>
+                    </div>
+                    @if (Model?.News != null && Model.News.Any())
+                    {
+                        @foreach (var news in Model.News.OrderByDescending(n => n.CreatedAt).Take(3))
+                        {
+                            <div class="announcement-item">
+                                <div class="ann-date">
+                                    @news.CreatedAt.ToString("d MMM yyyy", new System.Globalization.CultureInfo("pl-PL"))
+                                </div>
+                                <h5>@news.Title</h5>
+                                <p>@(news.Content.Length > 100 ? news.Content.Substring(0, 100) + "…" : news.Content)</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p style="color:var(--clr-light-slate);font-size:0.875rem;">Brak aktualności.</p>
+                    }
+                </div>
+
+                <!-- Pliki -->
+                <div class="dash-card">
+                    <div class="dash-card-header">
+                        <h3>Ostatnie pliki</h3>
+                        <a href="/Files">Wszystkie →</a>
+                    </div>
+                    @if (Model?.Files != null && Model.Files.Any())
+                    {
+                        @foreach (var file in Model.Files.OrderByDescending(f => f.UploadedAt).Take(4))
+                        {
+                            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid var(--clr-parchment);">
+                                <div style="width:32px;height:32px;background:var(--clr-parchment);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--clr-gold);">
+                                    <i class="bi bi-@(file.FileType == "mp3" ? "music-note" : file.FileType == "pdf" ? "file-pdf" : "file-earmark")"></i>
+                                </div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-size:0.85rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">@file.FileName</div>
+                                    <div style="font-size:0.72rem;color:var(--clr-light-slate);">@file.FileType.ToUpper()</div>
+                                </div>
+                                <a href="@file.FilePath" download class="btn-icon" title="Pobierz">
+                                    <i class="bi bi-download"></i>
+                                </a>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p style="color:var(--clr-light-slate);font-size:0.875rem;">Brak plików.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
