@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace choir_app.Migrations
 {
     /// <inheritdoc />
-    public partial class WlasciwyStart : Migration
+    public partial class FixedDataBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -285,6 +285,26 @@ namespace choir_app.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserEventSubscriptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EventId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserEventSubscriptions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserEventSubscriptions_Events_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Events",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
@@ -295,8 +315,8 @@ namespace choir_app.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "IsActive", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "9c95b6b6-8ac4-47e5-a9e5-dde4edb6d5c2", "admin@choir.pl", true, true, false, null, "ADMIN@CHOIR.PL", "ADMIN@CHOIR.PL", "AQAAAAIAAYagAAAAENVzHtYi2mj8YTUImcy/tOXOmu4iCeCBebgzMO596HN0o+hH5ebTTcOd/hDk0//b0w==", null, false, "39466028-8bc1-48ad-b162-93759f63329e", false, "admin@choir.pl" },
-                    { "2", 0, "b0e8d7f8-0725-4f7f-82a0-90d840542c31", "jan.kowalski@choir.pl", true, true, false, null, "JAN.KOWALSKI@CHOIR.PL", "JAN.KOWALSKI@CHOIR.PL", "AQAAAAIAAYagAAAAEPyxMH9M/1edRAKKLnOejujyrJexr9wi74hzwimFwnj8EjELcUXdPU83tTNuR4IFgg==", null, false, "523df951-88f3-4906-845b-3861e84f8e03", false, "jan.kowalski@choir.pl" }
+                    { "1", 0, "cbca7009-e7b8-4dce-829e-7da580722fb5", "admin@choir.pl", true, true, false, null, "ADMIN@CHOIR.PL", "ADMIN@CHOIR.PL", "AQAAAAIAAYagAAAAEHhRqORmMZ26W9EIUSDzb7Keswzf1gj/rJc6WBY9wbRp7p1JWfqZFmMHvqLoyCFNHg==", null, false, "7f5080bc-d757-41be-a1d8-69fe79b15505", false, "admin@choir.pl" },
+                    { "2", 0, "e5c162d7-bc90-4e54-8e81-4bab41ca2dbe", "jan.kowalski@choir.pl", true, true, false, null, "JAN.KOWALSKI@CHOIR.PL", "JAN.KOWALSKI@CHOIR.PL", "AQAAAAIAAYagAAAAENdcBkmZXg9mKVJFfrl25T/UWdVEnvINZboUarTQFqJaUuX279wMQMG/SvFFHUayVw==", null, false, "fb08ebba-8c49-4c3e-8bc0-f025d238db70", false, "jan.kowalski@choir.pl" }
                 });
 
             migrationBuilder.InsertData(
@@ -394,6 +414,11 @@ namespace choir_app.Migrations
                 name: "IX_ChoirMembers_UserId",
                 table: "ChoirMembers",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserEventSubscriptions_EventId",
+                table: "UserEventSubscriptions",
+                column: "EventId");
         }
 
         /// <inheritdoc />
@@ -433,13 +458,16 @@ namespace choir_app.Migrations
                 name: "News");
 
             migrationBuilder.DropTable(
+                name: "UserEventSubscriptions");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Events");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Events");
         }
     }
 }
