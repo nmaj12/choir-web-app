@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using choir_app.Data;
 using choir_app.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace choir_app.Controllers
 {
+    [Authorize]
     public class FaqEntriesController : Controller
     {
         private readonly ApplicationDbContext _context;
