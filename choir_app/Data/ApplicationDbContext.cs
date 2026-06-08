@@ -7,10 +7,9 @@ namespace choir_app.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
+        {}
 
         public DbSet<News> News { get; set; }
         public DbSet<Events> Events { get; set; }
@@ -19,22 +18,28 @@ namespace choir_app.Data
         public DbSet<ChoirMember> ChoirMembers { get; set; }
         public DbSet<GalleryImage> GalleryImages { get; set; }
         public DbSet<FileResource> FileResources { get; set; }
-
         public DbSet<FaqEntry> FaqEntries { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
             base.OnModelCreating(builder);
 
-            // Tworzenie roli Admina
-            builder.Entity<IdentityRole>().HasData(new IdentityRole
-            {
-                Id = "366c0137-4d47-4d2c-8069-b541aa0cbf99", 
-                Name = "Admin",
-                NormalizedName = "ADMIN"
-            });
+            // Stałe ID dla ról
+            string adminRoleId = "366c0137-4d47-4e46-88bb-de02acb0855f";
+            string dyrygentRoleId = "ccf65e78-511a-4e9f-b53d-11078c1279d8";
+            string chorzystaRoleId = "f5e74280-b416-4842-a7ba-9ed473a0e3b4";
+
+
+            // SEED ról
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Id = adminRoleId, Name = "Admin", NormalizedName = "ADMIN" },
+                new IdentityRole { Id = dyrygentRoleId, Name = "Dyrygent", NormalizedName = "DYRYGENT" },
+                new IdentityRole { Id = chorzystaRoleId, Name = "Chorzysta", NormalizedName = "CHORZYSTA" }
+            );
+
+            // IDENTITY SEED (USER)
+
+            var hasher = new PasswordHasher<ApplicationUser>();
 
             // EVENTS SEED
             builder.Entity<Events>().HasData(
@@ -72,9 +77,6 @@ namespace choir_app.Data
                 }
             );
 
-            // IDENTITY SEED (USER)
-            var hasher = new PasswordHasher<ApplicationUser>();
-
             var adminUser = new ApplicationUser
             {
                 Id = "1",
@@ -88,14 +90,6 @@ namespace choir_app.Data
             };
 
             adminUser.PasswordHash = hasher.HashPassword(adminUser, "Admin123!");
-
-            builder.Entity<Microsoft.AspNetCore.Identity.IdentityUserRole<string>>().HasData(
-            new Microsoft.AspNetCore.Identity.IdentityUserRole<string>
-            {
-                UserId = "1", 
-                RoleId = "366c0137-4d47-4d2c-8069-b541aa0cbf99" 
-            }
-            );
 
             var memberUser = new ApplicationUser
             {
@@ -112,8 +106,14 @@ namespace choir_app.Data
             memberUser.PasswordHash = hasher.HashPassword(memberUser, "Chorzysta123!");
 
             builder.Entity<ApplicationUser>().HasData(adminUser);
-
             builder.Entity<ApplicationUser>().HasData(memberUser);
+
+
+            // Przypisanie ról
+            builder.Entity<IdentityUserRole<string>>().HasData(
+            new IdentityUserRole<string> { UserId = "1", RoleId = adminRoleId },
+            new IdentityUserRole<string> { UserId = "2", RoleId = chorzystaRoleId }
+            );
 
             // CHOIR MEMBER SEED
             builder.Entity<ChoirMember>().HasData(
@@ -156,7 +156,7 @@ namespace choir_app.Data
                 new FileResource
                 {
                     Id = 1,
-                    FileName = "nuty.pdf",
+                    FileName = "nuty.pdf",    
                     FilePath = "/files/pdf/nuty.pdf",
                     FileType = "pdf",
                     UploadedAt = new DateTime(2025, 01, 01)

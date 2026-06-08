@@ -19,7 +19,7 @@ namespace choir_app.Controllers
 
         public IActionResult Index()
         {
-            var userId = User.FindFirstValue(ClaimTypes.Name);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var model = new ChoirDashboard
             {
