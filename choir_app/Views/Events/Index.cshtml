@@ -34,7 +34,6 @@
         <div class="events-layout">
             <div class="tab-content">
 
-                <!-- Nadchodzące -->
                 <div class="tab-pane fade show active" id="upcoming">
                     @{
                         var upcoming = Model?.Where(e => e.Date >= DateTime.Today).OrderBy(e => e.Date).ToList();
@@ -72,7 +71,6 @@
                     }
                 </div>
 
-                <!-- Archiwum -->
                 <div class="tab-pane fade" id="archive">
                     @{
                         var past = Model?.Where(e => e.Date < DateTime.Today).OrderByDescending(e => e.Date).ToList();

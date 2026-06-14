@@ -12,12 +12,10 @@ namespace choir_app
 
             builder.Services.AddControllersWithViews();
 
-            // DATABASE
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // IDENTITY
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -31,7 +29,6 @@ namespace choir_app
             var app = builder.Build();
 
 
-            // ERROR HANDLING
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");

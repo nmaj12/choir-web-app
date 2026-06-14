@@ -1,59 +1,129 @@
 ﻿@model choir_app.Models.ChoirDashboard
 
-<h2>Panel Chórzysty</h2>
+<div class="container py-5">
 
-<hr />
-
-<h3>Ogłoszenia</h3>
-@foreach (var n in Model.News)
-{
-    <div>
-        <strong>@n.Title</strong>
-        <p>@n.Content</p>
+    <div class="d-flex justify-content-between align-items-center mb-5 border-bottom pb-3">
+        <h2 class="display-6" style="font-family: serif; color: #333;">Panel Chórzysty</h2>
     </div>
-}
 
-<hr />
+    <div class="row">
 
-<h3>Najbliższe wydarzenia</h3>
-@foreach (var e in Model.Events)
-{
-    <div>
-        <strong>@e.Name</strong> - @e.Date.ToShortDateString()
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body p-4">
+                    <h4 class="card-title text-muted mb-4" style="font-family: serif; font-size: 1.5rem;">Ogłoszenia</h4>
+
+                    @if (Model.News != null && Model.News.Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var n in Model.News)
+                            {
+                                <div class="list-group-item px-0 py-3">
+                                    <h5 class="mb-1 fw-bold text-dark">@n.Title</h5>
+                                    <p class="mb-0 text-muted">@n.Content</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted mb-0">Brak nowych ogłoszeń.</p>
+                    }
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-muted mb-4" style="font-family: serif;">Najbliższe wydarzenia</h5>
+                            @if (Model.Events != null && Model.Events.Any())
+                            {
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var e in Model.Events)
+                                    {
+                                        <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                            <span class="text-dark fw-semibold">@e.Name</span>
+                                            <span class="badge bg-light text-dark border rounded-pill">@e.Date.ToShortDateString()</span>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p class="text-muted small mb-0">Brak nadchodzących wydarzeń.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-muted mb-4" style="font-family: serif;">Moja obecność</h5>
+                            @if (Model.MyAttendance != null && Model.MyAttendance.Any())
+                            {
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var a in Model.MyAttendance)
+                                    {
+                                        <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                            <span class="text-dark">@a.Event.Name</span>
+                                            <span class="badge bg-secondary rounded-pill">@a.Status</span>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p class="text-muted small mb-0">Brak danych o frekwencji.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <div class="col-lg-4">
+
+            <div class="card shadow-sm border-0 mb-4" style="background-color: #faf9f6; border-top: 4px solid #8b7355 !important;">
+                <div class="card-body p-4 text-center">
+                    <h5 class="card-title text-muted mb-3" style="font-family: serif;">Mój profil</h5>
+
+                    @if (Model.MyMember != null)
+                    {
+                        <div class="display-6 fw-bold mb-2" style="color: #8b7355;">@Model.MyMember.Voice</div>
+                        <p class="text-muted small mb-0">Dołączono: @Model.MyMember.JoinDate.ToShortDateString()</p>
+                    }
+                    else
+                    {
+                        <p class="text-muted small mb-0 mt-3">Nie przypisano jeszcze do chóru</p>
+                    }
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-muted mb-4" style="font-family: serif;">Materiały do pobrania</h5>
+
+                    @if (Model.Files != null && Model.Files.Any())
+                    {
+                        <div class="d-grid gap-2">
+                            @foreach (var f in Model.Files)
+                            {
+                                <a href="@f.FilePath" class="btn btn-outline-secondary text-start d-flex justify-content-between align-items-center" target="_blank">
+                                    <span>@f.FileName</span>
+                                    <small class="text-muted" style="font-size: 0.75rem;">@f.FileType</small>
+                                </a>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted small mb-0">Brak udostępnionych materiałów.</p>
+                    }
+                </div>
+            </div>
+
+        </div>
     </div>
-}
-
-<hr />
-
-<h3>Materiały</h3>
-@foreach (var f in Model.Files)
-{
-    <div>
-        <a href="@f.FilePath">@f.FileName</a> (@f.FileType)
-    </div>
-}
-
-<hr />
-
-<h3>Moja obecność</h3>
-@foreach (var a in Model.MyAttendance)
-{
-    <div>
-        @a.Event.Name - @a.Status
-    </div>
-}
-
-<hr />
-
-<h3>Mój głos</h3>
-@if (Model.MyMember != null)
-{
-    <div>
-        <p>Voice: <strong>@Model.MyMember.Voice</strong></p>
-        <p>Join date: @Model.MyMember.JoinDate.ToShortDateString()</p>
-    </div>
-}
-else
-{
-    <p>Nie przypisano jeszcze do chóru</p>
-}
+</div>

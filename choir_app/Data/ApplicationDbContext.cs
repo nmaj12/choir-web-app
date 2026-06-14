@@ -24,24 +24,20 @@ namespace choir_app.Data
         {
             base.OnModelCreating(builder);
 
-            // Stałe ID dla ról
             string adminRoleId = "366c0137-4d47-4e46-88bb-de02acb0855f";
             string dyrygentRoleId = "ccf65e78-511a-4e9f-b53d-11078c1279d8";
             string chorzystaRoleId = "f5e74280-b416-4842-a7ba-9ed473a0e3b4";
 
 
-            // SEED ról
             builder.Entity<IdentityRole>().HasData(
                 new IdentityRole { Id = adminRoleId, Name = "Admin", NormalizedName = "ADMIN" },
                 new IdentityRole { Id = dyrygentRoleId, Name = "Dyrygent", NormalizedName = "DYRYGENT" },
                 new IdentityRole { Id = chorzystaRoleId, Name = "Chorzysta", NormalizedName = "CHORZYSTA" }
             );
 
-            // IDENTITY SEED (USER)
 
             var hasher = new PasswordHasher<ApplicationUser>();
 
-            // EVENTS SEED
             builder.Entity<Events>().HasData(
                 new Events
                 {
@@ -59,7 +55,6 @@ namespace choir_app.Data
                 }
             );
 
-            // NEWS SEED
             builder.Entity<News>().HasData(
                 new News
                 {
@@ -109,13 +104,11 @@ namespace choir_app.Data
             builder.Entity<ApplicationUser>().HasData(memberUser);
 
 
-            // Przypisanie ról
             builder.Entity<IdentityUserRole<string>>().HasData(
             new IdentityUserRole<string> { UserId = "1", RoleId = adminRoleId },
             new IdentityUserRole<string> { UserId = "2", RoleId = chorzystaRoleId }
             );
 
-            // CHOIR MEMBER SEED
             builder.Entity<ChoirMember>().HasData(
                 new ChoirMember
                 {
@@ -140,7 +133,6 @@ namespace choir_app.Data
                 }
             );
 
-            // GALLERY SEED
             builder.Entity<GalleryImage>().HasData(
                 new GalleryImage
                 {

@@ -12,7 +12,7 @@ namespace choir_app.Models
         [Required]
         public string FilePath { get; set; } = string.Empty;
 
-        public string FileType { get; set; } = string.Empty; // pdf/mp3/nuty
+        public string FileType { get; set; } = string.Empty; 
 
         public DateTime UploadedAt { get; set; } = DateTime.Now;
     }

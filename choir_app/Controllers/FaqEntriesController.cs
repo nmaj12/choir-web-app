@@ -21,14 +21,12 @@ namespace choir_app.Controllers
             _context = context;
         }
 
-        // GET: FaqEntries
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _context.FaqEntries.ToListAsync());
         }
 
-        // GET: FaqEntries/Details/5
         [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
@@ -47,7 +45,6 @@ namespace choir_app.Controllers
             return View(faqEntry);
         }
 
-        // GET: FaqEntries/Create
         public IActionResult Create()
         {
             return View();

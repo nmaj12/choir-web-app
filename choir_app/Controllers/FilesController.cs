@@ -16,21 +16,18 @@ namespace choir_app.Controllers
             _env = env;
         }
 
-        // LISTA
         public IActionResult Index()
         {
             var files = _context.FileResources.ToList();
             return View(files);
         }
 
-        // UPLOAD VIEW
         [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Upload()
         {
             return View();
         }
 
-        // UPLOAD LOGIC
         [HttpPost]
         [Authorize(Roles = "Admin,Dyrygent")]
         public async Task<IActionResult> Upload(IFormFile file, string fileType)
@@ -38,7 +35,6 @@ namespace choir_app.Controllers
             if (file == null || file.Length == 0)
                 return RedirectToAction("Index");
 
-            // folder zależny od typu
             var folder = Path.Combine(_env.WebRootPath, "files", fileType);
 
             if (!Directory.Exists(folder))
@@ -66,7 +62,6 @@ namespace choir_app.Controllers
             return RedirectToAction("Index");
         }
 
-        // DOWNLOAD
         [Authorize]
         public IActionResult Download(int id)
         {

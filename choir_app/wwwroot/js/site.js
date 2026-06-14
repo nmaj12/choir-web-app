@@ -1,14 +1,6 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-/* =========================================================
-   CHOIR APP — site.js
-   ========================================================= */
-
+﻿
 'use strict';
 
-// ── NAVBAR: Scroll effect & hamburger ─────────────────────
 (function initNavbar() {
     const nav = document.getElementById('mainNav');
     const hamburger = document.getElementById('hamburgerBtn');
@@ -16,12 +8,10 @@
 
     if (!nav) return;
 
-    // Scroll shadow
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 20);
     }, { passive: true });
 
-    // Hamburger toggle
     if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
             const isOpen = mobileMenu.classList.toggle('open');
@@ -31,7 +21,6 @@
         });
     }
 
-    // Close mobile menu on link click
     mobileMenu?.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
@@ -41,7 +30,6 @@
     });
 })();
 
-// ── SCROLL REVEAL ──────────────────────────────────────────
 (function initScrollReveal() {
     const els = document.querySelectorAll('.reveal');
     if (!els.length) return;
@@ -58,7 +46,6 @@
     els.forEach(el => io.observe(el));
 })();
 
-// ── GALLERY LIGHTBOX ───────────────────────────────────────
 (function initLightbox() {
     const lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -93,7 +80,6 @@
         openLightbox(currentIdx);
     }
 
-    // Init gallery items
     document.querySelectorAll('[data-lightbox]').forEach((item, i) => {
         const img = item.querySelector('img');
         if (img) {
@@ -111,20 +97,17 @@
     btnPrev?.addEventListener('click', () => navigate(-1));
     btnNext?.addEventListener('click', () => navigate(1));
 
-    // Keyboard navigation
     lightbox.addEventListener('keydown', e => {
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') navigate(-1);
         if (e.key === 'ArrowRight') navigate(1);
     });
 
-    // Click backdrop to close
     lightbox.addEventListener('click', e => {
         if (e.target === lightbox) closeLightbox();
     });
 })();
 
-// ── GALLERY FILTERS ────────────────────────────────────────
 (function initGalleryFilters() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.masonry-item');
@@ -145,7 +128,6 @@
     });
 })();
 
-// ── FORM VALIDATION ────────────────────────────────────────
 (function initFormValidation() {
     document.querySelectorAll('form[data-validate]').forEach(form => {
         const inputs = form.querySelectorAll('[required], [data-rule]');
@@ -187,7 +169,6 @@
     });
 })();
 
-// ── ATTENDANCE BARS ANIMATION ─────────────────────────────
 (function initAttendanceBars() {
     const bars = document.querySelectorAll('.attendance-fill');
     if (!bars.length) return;
@@ -207,7 +188,6 @@
     });
 })();
 
-// ── HERO PARALLAX ─────────────────────────────────────────
 (function initHeroParallax() {
     const heroBg = document.querySelector('.hero-bg');
     if (!heroBg) return;
@@ -218,7 +198,6 @@
     }, { passive: true });
 })();
 
-// ── ACTIVE NAV LINK ────────────────────────────────────────
 (function setActiveNavLink() {
     const path = window.location.pathname;
     document.querySelectorAll('.nav-links .nav-link').forEach(link => {
@@ -228,7 +207,6 @@
     });
 })();
 
-// ── TOAST NOTIFICATIONS ───────────────────────────────────
 window.showToast = function (msg, type = 'success') {
     const container = document.getElementById('toastContainer') || (() => {
         const el = document.createElement('div');
@@ -247,7 +225,6 @@ window.showToast = function (msg, type = 'success') {
     setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.3s'; setTimeout(() => toast.remove(), 300); }, 4000);
 };
 
-// ── CONFIRM DELETE ─────────────────────────────────────────
 document.querySelectorAll('[data-confirm]').forEach(el => {
     el.addEventListener('click', e => {
         if (!confirm(el.dataset.confirm || 'Czy na pewno chcesz wykonać tę akcję?')) {
@@ -256,7 +233,6 @@ document.querySelectorAll('[data-confirm]').forEach(el => {
     });
 });
 
-// ── MINI CALENDAR ─────────────────────────────────────────
 (function initMiniCalendar() {
     const cal = document.getElementById('miniCalendar');
     if (!cal) return;

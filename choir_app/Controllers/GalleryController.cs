@@ -16,7 +16,6 @@ namespace choir_app.Controllers
             _env = env;
         }
 
-        // GET /Gallery
         public async Task<IActionResult> Index()
         {
             var photos = await _context.GalleryImages
@@ -25,7 +24,6 @@ namespace choir_app.Controllers
             return View(photos);
         }
 
-        // GET /Gallery/Details/5
         public async Task<IActionResult> Details(int id)
         {
             var photo = await _context.GalleryImages.FindAsync(id);
@@ -33,11 +31,9 @@ namespace choir_app.Controllers
             return View(photo);
         }
 
-        // GET /Gallery/Create  [Admin only]
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
         public IActionResult Create() => View();
 
-        // POST /Gallery/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
@@ -69,7 +65,6 @@ namespace choir_app.Controllers
             return View(model);
         }
 
-        // POST /Gallery/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
@@ -78,7 +73,6 @@ namespace choir_app.Controllers
             var photo = await _context.GalleryImages.FindAsync(id);
             if (photo != null)
             {
-                // Usuń plik z dysku jeśli istnieje
                 if (!string.IsNullOrEmpty(photo.ImageUrl))
                 {
                     var filePath = Path.Combine(_env.WebRootPath, photo.ImageUrl.TrimStart('/'));

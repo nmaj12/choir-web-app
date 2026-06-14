@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims; // NIEZBĘDNE!
+using System.Security.Claims; 
 using Microsoft.AspNetCore.Identity;
 
 namespace choir_app.Controllers
@@ -24,7 +24,6 @@ namespace choir_app.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                // Najpewniejszy sposób na pobranie ID w ASP.NET Identity
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 if (!string.IsNullOrEmpty(userId))
@@ -65,7 +64,7 @@ namespace choir_app.Controllers
             return RedirectToAction("Details", new { id = eventId });
         }
 
-        // Metody Admina (Create/Delete/Edit) pozostają bez zmian
+        // Metody Admina (Create/Delete/Edit)
         [Authorize(Roles = "Admin,Dyrygent")]
         public IActionResult Create() => View();
 
