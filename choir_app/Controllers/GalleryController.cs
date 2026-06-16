@@ -32,7 +32,7 @@ namespace choir_app.Controllers
         }
 
         [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
-        public IActionResult Create() => View();
+        public IActionResult Create() => View("Upload");
 
         [HttpPost]
         [ValidateAntiForgeryToken]
